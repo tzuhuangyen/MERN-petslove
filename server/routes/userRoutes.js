@@ -1,6 +1,6 @@
 const express = require('express');
-const UserModel = require('../models/usersModel');
 const router = express.Router();
+const UserModel = require('../models/usersModel');
 const dotenv = require('dotenv');
 dotenv.config();
 const bcrypt = require('bcrypt');
@@ -17,19 +17,24 @@ function generateToken(user) {
   return token;
 }
 
+router.get('/', (req, res) => {
+  console.log('Handling GET request to mongoDB for /');
+  res.send('hello');
+});
 //find/get all users
-router.get('/users', async (req, res) => {
+router.get('/user', async (req, res) => {
   try {
     const data = await UserModel.find();
     res.json(data);
-    console.log('Handling GET request for /users');
+    console.log('Handling GET request to mongoDB for /users');
+    console.log(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
 // Post /signup 註冊功能
-router.post('/users', async (req, res) => {
+router.post('/signup', async (req, res) => {
   console.log('Received registration request:', req.body);
   try {
     // 處理註冊的邏輯 擷取用戶輸入的資料
@@ -55,19 +60,17 @@ router.post('/users', async (req, res) => {
     const newUser = await UserModel.create({
       username: username,
       password: hashedPassword,
-    }).then(() => {
-      console.log('User registered successfully:', username); // 添加此行
-      res.status(200).json(newUser);
     });
+    console.log('User registered successfully:', username); // 添加此行
+    res.status(200).json(newUser);
   } catch (error) {
     console.error('Error registering user:', error.errors); // 添加此行
-
     res.status(400).json({ message: error.message });
   }
 });
 
 // Post /login登入功能
-router.post('/users/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   // 從 POST 請求的 body 中取得使用者提供的資訊
   const { username, password } = req.body;
   console.log('Received login request:', username); // 输出收到的用户名
@@ -99,7 +102,7 @@ router.post('/users/login', async (req, res) => {
 });
 
 //patch / update by id
-router.patch('/users/update', async (req, res) => {
+router.patch('/update', async (req, res) => {
   try {
     console.log('Received PATCH request:', req.body); // 记录请求体内容
     const token = req.headers.authorization.split(' ')[1]; // 从请求头中获取令牌
@@ -134,50 +137,7 @@ router.patch('/users/update', async (req, res) => {
 });
 
 //Delete user by id
-router.delete('/users/delete', generateToken, async (req, res) => {
-  try {
-    const token = req.headers.authorization.split(' ')[1];
-    const { username, password } = req.body;
-
-    // 1.验证token
-    jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
-      if (err) {
-        // 令牌无效或解析失败
-        console.error('Error verifying token:', err);
-        return res.status(401).json({ message: 'Unauthorized: Invalid token' });
-      }
-      // 2.从解析后的令牌中提取用户 ID
-      const userId = decodedToken.userId;
-
-      // 3.首先验证用户身份username
-      const user = await UserModel.findOne({ username });
-      if (!user) {
-        return res.status(401).json({ message: 'User not found.' });
-      }
-      // 4.验证password
-      const isPasswordValid = await bcrypt.compare(password, user.password);
-      if (!isPasswordValid) {
-        return res.status(401).json({ message: 'Password is incorrect.' });
-      }
-
-      // 5.檢查用戶是否正在刪除自己的帳戶
-      if (user._id.toString() !== userId) {
-        return res.status(403).json({
-          message: 'Forbidden: You are not authorized to delete this account.',
-        });
-      }
-
-      // 6.删除帐户
-      await UserModel.findByIdAndDelete(user._id);
-      res.status(200).json({
-        message: `User ${user.username} has been deleted successfully.`,
-      });
-    });
-  } catch (error) {
-    console.error('Error deleting account:', error);
-    res.status(500).json({ message: error.message });
-  }
-});
+//
 
 //get by ID
 // router.get('/getOne/:id', async (req, res) => {
@@ -198,5 +158,4 @@ router.delete('/users/delete', generateToken, async (req, res) => {
 //   console.log(res.statusCode);
 //   res.sendFile(__dirname + "/error.html");
 // });
-
 module.exports = router;
