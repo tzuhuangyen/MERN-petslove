@@ -17,7 +17,7 @@ function Banner() {
 
               <span>
                 <img
-                  src='/react-petslove/images/footprint.png'
+                  src='../../../public/images/footprint.png'
                   alt='footprint'
                 />
                 The Best choose
