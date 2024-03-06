@@ -20,7 +20,7 @@ const SignUp = () => {
         },
       };
       // 发送 POST 请求到 /users endpoint
-      const response = await axios.post('/api/datas', data, config);
+      const response = await axios.post('/users/signup', data, config);
       // const baseURL = `http://localhost:5173/react-petslover`;
 
       console.log('User created:', response.data);

@@ -153,12 +153,12 @@ const Shop = () => {
   //toggleFavorite function
   const [favorites, setFavorites] = useState([]);
 
-  // 取得jsonData資料 Use useEffect to set the initial state
+  // 取得資料 Use useEffect to set the initial state
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get('/api/products');
-        setJsonData(datas.data);
+        const response = await axios.get('/products');
+        setJsonData(response.data);
         setProductTypes(response.data);
         // console.log('jsonData:', datas.data);
       } catch (error) {
@@ -194,7 +194,7 @@ const Shop = () => {
           <input
             id='search'
             type='search'
-            className='form-control productSearch'
+            className='form-control'
             value={text}
             onChange={searchHandler}
             placeholder='search...beef?pork?'

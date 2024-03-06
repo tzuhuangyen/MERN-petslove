@@ -40,7 +40,7 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path='/react-petslove' element={<Index />} />
+        <Route path='/' element={<Index />} />
         <Route path='/react-petslove/shop' element={<Shop />} />
         <Route path='/react-petslove/users' element={<Users />} />
         <Route path='/react-petslove/users/signup' element={<SignUp />} />
