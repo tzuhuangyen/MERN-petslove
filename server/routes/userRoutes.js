@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserModel = require('../models/usersModel');
+const CartModel = require('../models/cartModel');
 const dotenv = require('dotenv');
 dotenv.config();
 const bcrypt = require('bcrypt');
@@ -16,18 +17,28 @@ function generateToken(user) {
   const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: '72h' });
   return token;
 }
-
-router.get('/', (req, res) => {
-  console.log('Handling GET request to mongoDB for /');
-  res.send('hello');
-});
+//test
+// router.get('/', (req, res) => {
+//   console.log('Handling GET request to mongoDB for /');
+//   res.send('hello');
+// });
 //find/get all users
-router.get('/user', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const data = await UserModel.find();
     res.json(data);
     console.log('Handling GET request to mongoDB for /users');
     console.log(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+//admin find/get by ID
+router.get('/user/:id', async (req, res) => {
+  try {
+    const data = await UserModel.findById(req.params.id);
+    res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -101,8 +112,36 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// 用戶登戶後获取用户信息和购物车数据
+router.get('/user/profile', async (req, res) => {
+  try {
+    // 从请求头中获取访问令牌
+    const token = req.headers.authorization.split(' ')[1];
+    // 解码令牌以获取用户ID
+    const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
+    const userId = decodedToken.userId;
+
+    // 根据用户ID查找用户信息
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // 根据用户ID查找购物车数据
+    const cart = await CartModel.findOne({ userId: userId }).populate(
+      'items.productId'
+    );
+
+    // 返回用户信息和购物车数据
+    res.status(200).json({ user: user, cart: cart });
+  } catch (error) {
+    console.error('Error fetching user profile:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 //patch / update by id
-router.patch('/update', async (req, res) => {
+router.patch('/update/:id', async (req, res) => {
   try {
     console.log('Received PATCH request:', req.body); // 记录请求体内容
     const token = req.headers.authorization.split(' ')[1]; // 从请求头中获取令牌
@@ -137,25 +176,6 @@ router.patch('/update', async (req, res) => {
 });
 
 //Delete user by id
-//
+//only admin can delete other user account by request
 
-//get by ID
-// router.get('/getOne/:id', async (req, res) => {
-//   try {
-//     const data = await UserModel.findById(req.params.id);
-//     res.json(data);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// });
-//post method test
-// router.post('/datas', async (req, res) => {
-//   res.status(201).json({ message: 'Post request to /api/datas' });
-// });
-
-// router.get("*", (req, res) => {
-//   res.status(404);
-//   console.log(res.statusCode);
-//   res.sendFile(__dirname + "/error.html");
-// });
 module.exports = router;

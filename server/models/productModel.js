@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
+  id: String,
   name: {
     type: String,
     required: [true, 'enter product name'],
   },
+
+  img_url: String,
   price: {
     type: Number,
     required: [true, 'enter price'],

@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useReducer } from 'react';
+import dotenv from 'dotenv';
+dotenv.config();
+
 // import { useContext } from 'react';
 import axios from 'axios';
 import { CiShoppingCart } from 'react-icons/ci';
@@ -198,7 +201,10 @@ const Shop = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get('http://localhost:8080/products/');
+        const response = await axios.get(
+          process.env.REACT_APP_BACKEND_URL + '/products'
+        );
+
         // 从API响应中获取数据并更新状态变量
         setJsonData(response.data);
         // setjsonDatas(response.data);

@@ -7,7 +7,7 @@ const cors = require('cors');
 const connectDB = require('./connectMongo');
 connectDB();
 const userRoutes = require('./routes/userRoutes');
-// const productRoutes = require('./routes/productRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 // 获取默认连接
 // const database = mongoose.connection;
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 app.use('/users', userRoutes);
 
 // 将产品路由挂载到 /products 路径下
-// app.use('/products', productRoutes);
+app.use('/products', productRoutes);
 
 // 错误处理程序
 app.use((err, req, res, next) => {

@@ -1,5 +1,7 @@
 //usersModel此檔案用來設定當用戶輸入時的規則
 const mongoose = require('mongoose');
+const cartSchema = require('./cartModel'); // 引入 cartItemSchema
+
 const bcrypt = require('bcrypt');
 // 假设 UserModel Schema 包含一个名为 password 的字段
 
@@ -17,6 +19,7 @@ const userSchema = new mongoose.Schema(
       // select: false,
       //預設會顯示密碼 改為false及會隱藏
     },
+    cart: [cartSchema], // 用户购物车中包含的商品列表
     createdAt: {
       type: Date,
       default: Date.now,
