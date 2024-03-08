@@ -14,7 +14,7 @@ export default defineConfig({
       input: 'src/main.jsx',
       output: {
         entryFileNames: `assets/main.js`,
-        chunkFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/all.js`,
         assetFileNames: `assets/[name].[ext]`,
       },
     },
