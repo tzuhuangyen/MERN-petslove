@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useReducer } from 'react';
-import dotenv from 'dotenv';
-dotenv.config();
 
 // import { useContext } from 'react';
 import axios from 'axios';
@@ -146,69 +144,67 @@ const Shop = () => {
   //add to cart dispatch function
   // const [state, dispatch] = useReducer(cartReducer, { cartList: [] });
   //取得原始資料
-  const [jsonData, setJsonData] = useState();
+  const [initData, setInitData] = useState([]);
 
   //create products card
-  const CreateCard = (jsonData) => {
-    return (
-      <>
-        {' '}
-        <div className='col'>
-          <div className='card mb-4 shadow-sm productCard'>
-            <img
-              src={jsonData.img_url}
-              className='card-img-top object-fit '
-              alt='product'
-            />
-            <div className='card-body'>
-              <p className='card-title'>
-                {jsonData.name}
-                <span className='card-text float-end'>${jsonData.price}</span>
-              </p>
-              <div className='d-flex justify-content-between align-end  '>
-                <p className='card-text'>Type: {jsonData.type}</p>
-                <span className='card-text'>{jsonData.order}</span>
-              </div>
-              <div className='btns cardBtns'>
-                <button
-                // className={`btnHeart btn-purple-outline ${
-                //   isProductFavorite ? 'favorited' : ''
-                // }`}
-                // onClick={() => toggleFavorite(jsonData.id)}
-                >
-                  <MdFavoriteBorder />
-                </button>
-                <button
-                  type='button'
-                  className=' btnCart'
-                  // onClick={() => {
-                  //   dispatch({
-                  //     type: 'ADD_TO_CART',
-                  //     payload: { ...jsonData, quantity: 1 },
-                  //   });
-                  // }}
-                >
-                  <CiShoppingCart />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  };
+  // const CreateCard = (jsonData) => {
+  //   return (
+  //     <>
+  //       {' '}
+  //       <div className='col'>
+  //         <div className='card mb-4 shadow-sm productCard'>
+  //           <img
+  //             src={jsonData.img_url}
+  //             className='card-img-top object-fit '
+  //             alt='product'
+  //           />
+  //           <div className='card-body'>
+  //             <p className='card-title'>
+  //               {jsonData.name}
+  //               <span className='card-text float-end'>${jsonData.price}</span>
+  //             </p>
+  //             <div className='d-flex justify-content-between align-end  '>
+  //               <p className='card-text'>Type: {jsonData.type}</p>
+  //               <span className='card-text'>{jsonData.order}</span>
+  //             </div>
+  //             <div className='btns cardBtns'>
+  //               <button
+  //               // className={`btnHeart btn-purple-outline ${
+  //               //   isProductFavorite ? 'favorited' : ''
+  //               // }`}
+  //               // onClick={() => toggleFavorite(jsonData.id)}
+  //               >
+  //                 <MdFavoriteBorder />
+  //               </button>
+  //               <button
+  //                 type='button'
+  //                 className=' btnCart'
+  //                 // onClick={() => {
+  //                 //   dispatch({
+  //                 //     type: 'ADD_TO_CART',
+  //                 //     payload: { ...jsonData, quantity: 1 },
+  //                 //   });
+  //                 // }}
+  //               >
+  //                 <CiShoppingCart />
+  //               </button>
+  //             </div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </>
+  //   );
+  // };
   // 取得資料 Use useEffect to set the initial state
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get(
-          process.env.REACT_APP_BACKEND_URL + '/products'
-        );
+        const response = await axios.get('http://localhost:8080/products/');
 
         // 从API响应中获取数据并更新状态变量
-        setJsonData(response.data);
-        // setjsonDatas(response.data);
-        console.log('jsonData:', response.data);
+        setInitData(response.data);
+        // setInitDatas(response.data);
+        console.log('productsData:', response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -218,8 +214,8 @@ const Shop = () => {
   return (
     <div>
       <h1>React data test render</h1>
-      {JSON.stringify(jsonData)}
-      {jsonData.map((data) => {
+      {JSON.stringify(initData)}
+      {initData.map((data) => {
         return (
           <div key={data.id}>
             <p>{data.type}</p>
