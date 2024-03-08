@@ -51,7 +51,7 @@ function App() {
       </Routes>
 
       <Footer />
-      <div className='container-lg'>
+      {/* <div className='container-lg'>
         <h2>all users' data for backend admin</h2>
         <ul>
           {usersData.map((user) => (
@@ -63,7 +63,7 @@ function App() {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </>
   );
 }

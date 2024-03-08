@@ -6,7 +6,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter
-    basename={process.env.NODE_ENV === 'production' ? '/react-petslove/' : '/'}
+    basename={process.env.NODE_ENV === 'production' ? '/MERN-petslove/' : '/'}
   >
     <App />{' '}
   </BrowserRouter>
