@@ -13,10 +13,10 @@ export default defineConfig({
     assetsDir: 'assets', // 将资源文件输出到名为 assets 的子目录中
 
     rollupOptions: {
-      input: './src/main.jsx',
+      input: 'src/main.jsx',
       output: {
-        entryFileNames: `src/main.jxs`,
-        chunkFileNames: `src/all.js`,
+        entryFileNames: `index.html`,
+        chunkFileNames: `assets/[name].js`,
         assetFileNames: `assets/[name].[ext]`,
       },
     },
