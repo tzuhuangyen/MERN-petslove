@@ -18,36 +18,36 @@ import Footer from './assets/pages/Footer';
 function App() {
   const [usersData, setUsersData] = useState([]);
 
-  useEffect(() => {
-    async function getUsers() {
-      try {
-        const res = await fetch('http://localhost:8080/api/datas');
-        if (!res.ok) {
-          throw new Error('Failed to fetch');
-        }
-        const usersData = await res.json();
-        setUsersData(usersData);
-        console.log(usersData);
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
-      }
-    }
-    getUsers();
-  }, []);
+  // useEffect(() => {
+  //   async function getUsers() {
+  //     try {
+  //       const res = await fetch('http://localhost:8080/users');
+  //       if (!res.ok) {
+  //         throw new Error('Failed to fetch');
+  //       }
+  //       const usersData = await res.json();
+  //       setUsersData(usersData);
+  //       console.log(usersData);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error.message);
+  //     }
+  //   }
+  //   getUsers();
+  // }, []);
 
   return (
     <>
       <Header />
 
       <Routes>
-        <Route path='/' element={<Index />} />
-        <Route path='/react-petslove/shop' element={<Shop />} />
-        <Route path='/react-petslove/users' element={<Users />} />
-        <Route path='/react-petslove/users/signup' element={<SignUp />} />
-        <Route path='/react-petslove/users/login' element={<Login />} />
+        <Route path='/MERN-petslove/' element={<Index />} />
+        <Route path='/MERN-petslove/shop' element={<Shop />} />
+        <Route path='/MERN-petslove/users' element={<Users />} />
+        <Route path='/MERN-petslove/users/signup' element={<SignUp />} />
+        <Route path='/MERN-petslove/users/login' element={<Login />} />
         {/* <Route path="/favorite" element={<Favorite />} /> */}
-        <Route path='/react-petslove/users/member' element={<Member />} />
-        <Route path='/react-petslove/blog' element={<Blog />} />
+        <Route path='/MERN-petslove/users/member' element={<Member />} />
+        <Route path='/MERN-petslove/blog' element={<Blog />} />
       </Routes>
 
       <Footer />

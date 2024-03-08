@@ -15,7 +15,10 @@ function Login() {
       };
 
       // 发送 POST 请求到 /login endpoint
-      const response = await axios.post(`/api/datas/login`, data);
+      const response = await axios.post(
+        `http://localhost:8080/users/login`,
+        data
+      );
       const token = response.data.token;
 
       alert('User logged in successfully!');

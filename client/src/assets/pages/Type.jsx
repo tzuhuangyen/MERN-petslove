@@ -1,130 +1,129 @@
-import React from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
+import React from 'react';
 
 function Type() {
   return (
     <div>
       {/* <!-- types --> */}
-      <section className="types">
-        <div className="container">
-          <h2 className="text-center">
+      <section className='types'>
+        <div className='container'>
+          <h2 className='text-center'>
             <span>
-              <img src="/react-petslove/images/footprint.png" alt="before" />
+              <img src='/MERN-petslove/images/footprint.png' alt='before' />
             </span>
-            Types of Snack
+            Snacks
             <span>
-              <img src="/react-petslove/images/footprint.png" alt="" />{" "}
+              <img src='/MERN-petslove/images/footprint.png' alt='' />{' '}
             </span>
           </h2>
 
-          <div className="d-flex justify-content-lg-between justify-content-md-center flex-wrap">
-            {/* <!-- type1 --> */}
-            <div className="card border-0 text-white shadow mb-4">
-              <div className="position-relative">
-                <a href="#" className="d-block type-card-hover">
+          <div className='row d-flex justify-content-lg-between justify-content-md-center flex-wrap'>
+            {/* <!-- type1 pre-order --> */}
+            <div className='col-4 card border-0 text-white shadow mb-4'>
+              <div className='position-relative'>
+                <a href='#' className='d-block type-card-hover'>
                   <img
-                    src="/react-petslove/images/type1.png"
-                    className="card-img-top typeFood"
-                    alt="..."
+                    src='/MERN-petslove/images/type1.png'
+                    className='card-img-top typeFood'
+                    alt='pre-order'
                   />
-                  <div className="card-img-overlay">
-                    <h4 className="card-title">預購熱門寵食</h4>
+                  <div className='card-img-overlay'>
+                    <h4 className='card-title'>Pre-order</h4>
                   </div>
                 </a>
-                <div className="card-body">
-                  <ul className="text-dark list-unstyled">
-                    <li className="mb-2">
-                      <img src="/react-petslove/images/footprint.png" alt="" />
-                      下單後開始製作
-                      <img src="/react-petslove/images/footprint.png" alt="" />
+                <div className='card-body'>
+                  <ul className='text-dark list-unstyled'>
+                    <li className='mb-2'>
+                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      After ordering, production begins
+                      <img src='/MERN-petslove/images/footprint.png' alt='' />
                     </li>
-                    <li className="mb-2">
-                      <img src="/react-petslove/images/footprint.png" alt="" />
-                      等待時間約2~5天
-                      <img src="/react-petslove/images/footprint.png" alt="" />
+                    <li className='mb-2'>
+                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      waiting time is apprx. 2 to 5
+                      <img src='/MERN-petslove/images/footprint.png' alt='' />
                     </li>
                     <li>
-                      <img src="/react-petslove/images/footprint.png" alt="" />
-                      可保存兩週
-                      <img src="/react-petslove/images/footprint.png" alt="" />
+                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      it can be stored for up to two weeks
+                      <img src='/MERN-petslove/images/footprint.png' alt='' />
                     </li>
                   </ul>
-                  <a href="./product.html" className="btn ">
-                    了解更多
-                  </a>
+                  <button href='./product.html' className='btn '>
+                    More Detail
+                  </button>
                 </div>
               </div>
             </div>
-            {/* <!-- type2 --> */}
-            <div className="card text-white shadow mb-4">
+            {/* <!-- type2 in stock --> */}
+            <div className='col-4 card text-white shadow mb-4'>
               <div>
-                <a href="#" className="d-block type-card-hover">
+                <a href='#' className='d-block type-card-hover'>
                   <img
-                    src="/react-petslove/images/type2.png"
-                    className="card-img-top typeFood"
-                    alt="..."
+                    src='/MERN-petslove/images/type2.png'
+                    className='card-img-top typeFood'
+                    alt='...'
                   />
-                  <div className="card-img-overlay">
-                    <h4 className="card-title card-text">當天現貨寵食</h4>
+                  <div className='card-img-overlay'>
+                    <h4 className='card-title card-text'>In-stock</h4>
                   </div>
                 </a>
               </div>
-              <div className="card-body">
-                <ul className="text-dark list-unstyled">
-                  <li className="mb-2">
-                    <img src="/react-petslove/images/footprint.png" alt="" />
-                    當天清晨採購
-                    <img src="/react-petslove/images/footprint.png" alt="" />
+              <div className='card-body'>
+                <ul className='text-dark list-unstyled'>
+                  <li className='mb-2'>
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    Fresh ingredients
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
                   </li>
-                  <li className="mb-2">
-                    <img src="/react-petslove/images/footprint.png" alt="" />
-                    限量製作
-                    <img src="/react-petslove/images/footprint.png" alt="" />
+                  <li className='mb-2'>
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    Limited production
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
                   </li>
                   <li>
-                    <img src="/react-petslove/images/footprint.png" alt="" />
-                    可當天傍晚取貨
-                    <img src="/react-petslove/images/footprint.png" alt="" />
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    Same-day delivery available
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
                   </li>
                 </ul>
-                <a href="./product.html" className="btn">
-                  了解更多
+                <a href='./product.html' className='btn'>
+                  More Detail
                 </a>
               </div>
             </div>
-            {/* <!-- type3 --> */}
-            <div className="card shadow text-white mb-4">
-              <a href="#" className="d-block type-card-hover">
+            {/* <!-- type3 customise --> */}
+            <div className='col-4 card shadow text-white mb-4'>
+              <a href='#' className='d-block type-card-hover'>
                 <img
-                  src="/react-petslove/images/type5.jpg"
-                  className="card-img-top typeFood"
-                  alt="..."
+                  src='/MERN-petslove/images/type5.jpg'
+                  className='card-img-top typeFood'
+                  alt='...'
                 />
-                <div className="card-img-overlay">
-                  <h4 className="card-title card-text">客製寵物零食</h4>
+                <div className='card-img-overlay'>
+                  <h4 className='card-title card-text'>Custom snacks</h4>
                 </div>
               </a>
 
-              <div className="card-body">
-                <ul className="text-dark list-unstyled">
-                  <li className="mb-2">
-                    <img src="/react-petslove/images/footprint.png" alt="" />
-                    依照主子喜好
-                    <img src="/react-petslove/images/footprint.png" alt="" />
+              <div className='card-body'>
+                <ul className='text-dark list-unstyled'>
+                  <li className='mb-2'>
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    According to preferences{' '}
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
                   </li>
-                  <li className="mb-2">
-                    <img src="/react-petslove/images/footprint.png" alt="" />
-                    慶祝主子生日
-                    <img src="/react-petslove/images/footprint.png" alt="" />
+                  <li className='mb-2'>
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    Birthday celebration
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
                   </li>
                   <li>
-                    <img src="/react-petslove/images/footprint.png" alt="" />
-                    客製化服務
-                    <img src="/react-petslove/images/footprint.png" alt="" />
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    Customized service"
+                    <img src='/MERN-petslove/images/footprint.png' alt='' />
                   </li>
                 </ul>
-                <a href="./product.html" className="btn">
-                  了解更多
+                <a href='./product.html' className='btn'>
+                  More Detail
                 </a>
               </div>
             </div>

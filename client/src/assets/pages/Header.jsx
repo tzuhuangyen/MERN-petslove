@@ -19,14 +19,14 @@ function Header() {
           <Navbar.Toggle aria-controls='navbarNav' />
           <Navbar.Collapse id='navbarNav' className='justify-content-end'>
             <Nav className='navLinks'>
-              <Nav.Link as={Link} to='/react-petslove/shop'>
+              <Nav.Link as={Link} to='/MERN-petslove/shop'>
                 Shop
               </Nav.Link>
 
-              <Nav.Link as={Link} to='/react-petslove/users'>
+              <Nav.Link as={Link} to='/MERN-petslove/users'>
                 <CiUser />
               </Nav.Link>
-              <Nav.Link as={Link} to='/react-petslove/blog'>
+              <Nav.Link as={Link} to='/MERN-petslove/blog'>
                 Blog
               </Nav.Link>
             </Nav>

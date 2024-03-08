@@ -23,7 +23,10 @@ function Member() {
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.delete('/api/datas/delete', config);
+      const response = await axios.delete(
+        'http://localhost:8080/users/delete',
+        config
+      );
       console.log(response.data);
       alert('Your account has been deleted.');
     } catch (error) {
@@ -58,7 +61,10 @@ function Member() {
       };
 
       // 发送重新登录请求以获取新令牌
-      const response = await axios.post(`/api/datas/login`, data);
+      const response = await axios.post(
+        `http://localhost:8080/users/login`,
+        data
+      );
       const newToken = response.data.token;
       localStorage.setItem('token', newToken); // 存储新令牌
 
@@ -69,7 +75,7 @@ function Member() {
       };
 
       const responseUpdate = await axios.patch(
-        `/api/datas/update/${userId}`,
+        `http://localhost:8080/users/update/${userId}`,
         { password: newPassword },
         config
       );
@@ -77,7 +83,7 @@ function Member() {
       console.log(responseUpdate.data);
 
       // if (token) {
-      //   const response = await axios.post(`/api/datas/login`, data); // 重新登录获取新令牌
+      //   const response = await axios.post(`http://localhost:8080/users/login`, data); // 重新登录获取新令牌
       //   const newToken = response.data.token;
       //   localStorage.setItem('token', newToken); // 存储新令牌
       // }
