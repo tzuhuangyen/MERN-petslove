@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/MERN-petslove/',
+  base: 'https://tzuhuangyen.github.io/MERN-petslove/',
   plugins: [react()],
 
   build: {
