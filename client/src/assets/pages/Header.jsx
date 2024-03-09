@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import { Navbar, Nav } from 'react-bootstrap';
 import { CiUser, CiHeart } from 'react-icons/ci';
-import Logo from '../../../public/images/Logo.png';
+import Logo from '/images/Logo.png';
 
 function Header() {
   return (
@@ -19,14 +19,14 @@ function Header() {
           <Navbar.Toggle aria-controls='navbarNav' />
           <Navbar.Collapse id='navbarNav' className='justify-content-end'>
             <Nav className='navLinks'>
-              <Nav.Link as={Link} to='/MERN-petslove/shop'>
+              <Nav.Link as={Link} to='/shop'>
                 Shop
               </Nav.Link>
 
-              <Nav.Link as={Link} to='/MERN-petslove/users'>
+              <Nav.Link as={Link} to='/users'>
                 <CiUser />
               </Nav.Link>
-              <Nav.Link as={Link} to='/MERN-petslove/blog'>
+              <Nav.Link as={Link} to='/blog'>
                 Blog
               </Nav.Link>
             </Nav>

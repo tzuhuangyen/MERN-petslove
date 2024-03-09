@@ -39,15 +39,17 @@ function App() {
     <>
       <Header />
 
-      <Routes>
-        <Route path='/MERN-petslove/' element={<Index />} />
-        <Route path='/MERN-petslove/shop' element={<Shop />} />
-        <Route path='/MERN-petslove/users' element={<Users />} />
-        <Route path='/MERN-petslove/users/signup' element={<SignUp />} />
-        <Route path='/MERN-petslove/users/login' element={<Login />} />
+      <Routes basename='/MERN-petslove'>
+        <Route exact path='/' element={<Index />} />
+
+        {/* <Route path='/' element={<Index />} /> */}
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/users' element={<Users />} />
+        <Route path='/users/signup' element={<SignUp />} />
+        <Route path='/users/login' element={<Login />} />
         {/* <Route path="/favorite" element={<Favorite />} /> */}
-        <Route path='/MERN-petslove/users/member' element={<Member />} />
-        <Route path='/MERN-petslove/blog' element={<Blog />} />
+        <Route path='/users/member' element={<Member />} />
+        <Route path='/blog' element={<Blog />} />
       </Routes>
 
       <Footer />

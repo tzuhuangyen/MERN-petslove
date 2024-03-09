@@ -1,10 +1,13 @@
 import React from 'react';
-import fb from '../../../public/images/fb.png';
+import fb from '/images/fb.png';
 
-import line from '../../../public/images/line.png';
-import ig from '../../../public/images/ig.png';
-import Logo from '../../../public/images/Logo.png';
+import line from '/images/line.png';
+import ig from '/images/ig.png';
+import Logo from '/images/Logo.png';
 import Container from 'react-bootstrap/Container';
+import { Navbar, Nav } from 'react-bootstrap';
+
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -12,11 +15,17 @@ const Footer = () => {
       <div className='footer'>
         <Container fluid>
           <div className='container-lg d-flex justify-content-between align-items-center'>
-            <h1 className='logo'>
-              <a href='index.html'>
-                <img src={Logo} alt='logo' /> Pet's Love
-              </a>
-            </h1>
+            <Navbar.Brand
+              as={Link}
+              to='/'
+              className='d-flex align-items-center '
+            >
+              <img src={Logo} alt='logo' className='logo' />
+              <h1 className='logoH1 animate__animated animate__backInLeft animate__slow d-sm-none d-md-block'>
+                Pet's Love
+              </h1>
+            </Navbar.Brand>
+
             <ul className='social d-flex '>
               <li>
                 <a href='#'></a>

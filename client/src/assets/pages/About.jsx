@@ -1,4 +1,5 @@
 import React from 'react';
+import footprintImg from '/images/footprint.png'; // 使用相对路径引入图片
 
 function About() {
   return (
@@ -8,11 +9,11 @@ function About() {
         <div className='container'>
           <h2>
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='before' />
+              <img src={footprintImg} alt='before footprintImg' />
             </span>
             About
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='' />{' '}
+              <img src={footprintImg} alt='after footprintImg' />{' '}
             </span>
           </h2>
           <div className='card align-items-center text-center'>
@@ -61,11 +62,11 @@ function About() {
       <div className='about-lg container d-none d-md-block'>
         <h2 className='text-center'>
           <span>
-            <img src='/MERN-petslove/images/footprint.png' alt='before' />
+            <img src={footprintImg} alt='before' />
           </span>
           About
           <span>
-            <img src='/MERN-petslove/images/footprint.png' alt='' />
+            <img src={footprintImg} alt='' />
           </span>
         </h2>
         <ul className='card-bodys'>
@@ -85,7 +86,7 @@ function About() {
           <li className='card-body about2'>
             <img
               className='aboutImg2'
-              src='/MERN-petslove/images/100%about.png'
+              src='/images/about2.jpg'
               alt='aboutImg2'
             />
             <h3 className='card-title'>No preservatives</h3>
