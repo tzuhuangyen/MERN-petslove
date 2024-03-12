@@ -11,11 +11,11 @@ function Type() {
         <div className='container'>
           <h2 className='text-center'>
             <span>
-              <img src={footprint} alt='before' />
+              <img src={footprint} alt='footprint' />
             </span>
             Snacks
             <span>
-              <img src={footprint} alt='' />{' '}
+              <img src={footprint} alt='footprint' />
             </span>
           </h2>
 
@@ -64,7 +64,7 @@ function Type() {
                   <img
                     src={type2}
                     className='card-img-top typeFood'
-                    alt='...'
+                    alt='instock'
                   />
                   <div className='card-img-overlay'>
                     <h4 className='card-title card-text'>In-stock</h4>
