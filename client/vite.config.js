@@ -13,7 +13,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     emptyOutDir: false, // 设置为 false，防止构建时清空输出目录
     assetsDir: '.', // 将资源文件输出到名为 assets 的子目录中
     rollupOptions: {
