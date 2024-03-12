@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import { Navbar, Nav } from 'react-bootstrap';
 import { CiUser, CiHeart } from 'react-icons/ci';
-import Logo from '/images/Logo.png';
+import Logo from '../../../public/images/Logo.png';
 
 function Header() {
   return (

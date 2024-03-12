@@ -1,12 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path'; // 引入 resolve 方法
+import path from 'path';
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/MERN-petslove/' : '/',
-  root: '.', // 使用绝对路径设置根目录
+  root: '.',
   plugins: [react()],
-
+  resolve: {
+    alias: {
+      '/images': path.resolve(__dirname, 'public/images'),
+    },
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: false, // 设置为 false，防止构建时清空输出目录
@@ -20,6 +25,7 @@ export default defineConfig({
         assetFileNames: `assets/[name].[ext]`,
       },
     },
+    template: 'index.html',
   },
 
   server: {
