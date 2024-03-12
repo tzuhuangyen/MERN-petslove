@@ -5,18 +5,17 @@ import path from 'path';
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/MERN-petslove/' : '/',
-  root: '.',
   plugins: [react()],
+  // root: path.resolve(__dirname, 'client'),
   resolve: {
     alias: {
       '/images': path.resolve(__dirname, 'public/images'),
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     emptyOutDir: false, // 设置为 false，防止构建时清空输出目录
-    assetsDir: 'assets', // 将资源文件输出到名为 assets 的子目录中
-
+    assetsDir: '.', // 将资源文件输出到名为 assets 的子目录中
     rollupOptions: {
       input: 'main.jsx', // 修改为相对项目根目录的路径
       output: {
@@ -25,7 +24,8 @@ export default defineConfig({
         assetFileNames: `assets/[name].[ext]`,
       },
     },
-    template: 'index.html',
+    // 指定 HTML 模板文件的路径
+    template: path.resolve(__dirname, 'client/index.html'),
   },
 
   server: {
