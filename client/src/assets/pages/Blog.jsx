@@ -1,5 +1,8 @@
 import React from 'react';
-
+import footprint from '/images/footprint.png';
+import article1 from '/images/article1.png';
+import article2 from '/images/article2.png';
+import article3 from '/images/article3.png';
 function Blog() {
   return (
     <div>
@@ -8,19 +11,15 @@ function Blog() {
         <div className='container'>
           <h2 className='text-center pt-5 '>
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='footprint' />
+              <img src={footprint} alt='footprint' />
             </span>
-            寵物生活知識
+            Pet's Know of Health
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='footprint' />
+              <img src={footprint} alt='footprint' />
             </span>
           </h2>
           <div className='card type-card-hover'>
-            <img
-              src='/MERN-petslove/images/article1.png'
-              className='card-img-top'
-              alt='article1'
-            />
+            <img src={article1} className='card-img-top' alt='article1' />
             <div className='card-body'>
               <span className='card-text text-muted'> 2022-08-21 </span>
               <h5 className='card-title'>
@@ -35,11 +34,7 @@ function Blog() {
             </div>
           </div>
           <div className='card type-card-hover'>
-            <img
-              src='/MERN-petslove/images/article2.png'
-              className='card-img-top'
-              alt='article2'
-            />
+            <img src={article2} className='card-img-top' alt='article2' />
             <div className='card-body'>
               <span className='card-text text-muted'> 2023-09-12 </span>
               <h5 className='card-title'>
@@ -54,11 +49,7 @@ function Blog() {
             </div>
           </div>
           <div className='card type-card-hover'>
-            <img
-              src='/MERN-petslove/images/article3.png'
-              className='card-img-top'
-              alt='article3'
-            />
+            <img src={article3} className='card-img-top' alt='article3' />
             <div className='card-body'>
               <span className='card-text text-muted'> 2023-09-21 </span>
               <h5 className='card-title'>
