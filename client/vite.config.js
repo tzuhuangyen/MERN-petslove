@@ -17,7 +17,10 @@ export default defineConfig({
     emptyOutDir: false, // 设置为 false，防止构建时清空输出目录
     assetsDir: '.', // 将资源文件输出到名为 assets 的子目录中
     rollupOptions: {
-      input: 'main.jsx', // 修改为相对项目根目录的路径
+      input: {
+        // 相对于项目根目录的路径
+        main: path.resolve(__dirname, 'main.jsx'),
+      },
       output: {
         entryFileNames: ({ name }) => `assets/${name}.js`,
         chunkFileNames: `assets/[name].js`,
