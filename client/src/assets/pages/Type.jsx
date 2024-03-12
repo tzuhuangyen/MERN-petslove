@@ -8,11 +8,11 @@ function Type() {
         <div className='container'>
           <h2 className='text-center'>
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='before' />
+              <img src='/images/footprint.png' alt='before' />
             </span>
             Snacks
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='' />{' '}
+              <img src='/images/footprint.png' alt='' />{' '}
             </span>
           </h2>
 
@@ -22,7 +22,7 @@ function Type() {
               <div className='position-relative'>
                 <a href='#' className='d-block type-card-hover'>
                   <img
-                    src='/MERN-petslove/images/type1.png'
+                    src='/images/type1.png'
                     className='card-img-top typeFood'
                     alt='pre-order'
                   />
@@ -33,19 +33,19 @@ function Type() {
                 <div className='card-body'>
                   <ul className='text-dark list-unstyled'>
                     <li className='mb-2'>
-                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      <img src='/images/footprint.png' alt='' />
                       After ordering, production begins
-                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      <img src='/images/footprint.png' alt='' />
                     </li>
                     <li className='mb-2'>
-                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      <img src='/images/footprint.png' alt='' />
                       waiting time is apprx. 2 to 5
-                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      <img src='/images/footprint.png' alt='' />
                     </li>
                     <li>
-                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      <img src='/images/footprint.png' alt='' />
                       it can be stored for up to two weeks
-                      <img src='/MERN-petslove/images/footprint.png' alt='' />
+                      <img src='/images/footprint.png' alt='' />
                     </li>
                   </ul>
                   <button href='./product.html' className='btn '>
@@ -59,7 +59,7 @@ function Type() {
               <div>
                 <a href='#' className='d-block type-card-hover'>
                   <img
-                    src='/MERN-petslove/images/type2.png'
+                    src='/images/type2.png'
                     className='card-img-top typeFood'
                     alt='...'
                   />
@@ -71,19 +71,19 @@ function Type() {
               <div className='card-body'>
                 <ul className='text-dark list-unstyled'>
                   <li className='mb-2'>
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                     Fresh ingredients
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                   </li>
                   <li className='mb-2'>
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                     Limited production
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                   </li>
                   <li>
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                     Same-day delivery available
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                   </li>
                 </ul>
                 <a href='./product.html' className='btn'>
@@ -95,7 +95,7 @@ function Type() {
             <div className='col-4 card shadow text-white mb-4'>
               <a href='#' className='d-block type-card-hover'>
                 <img
-                  src='/MERN-petslove/images/type5.jpg'
+                  src='/images/type5.jpg'
                   className='card-img-top typeFood'
                   alt='...'
                 />
@@ -107,19 +107,19 @@ function Type() {
               <div className='card-body'>
                 <ul className='text-dark list-unstyled'>
                   <li className='mb-2'>
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                     According to preferences{' '}
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                   </li>
                   <li className='mb-2'>
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                     Birthday celebration
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                   </li>
                   <li>
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                     Customized service"
-                    <img src='/MERN-petslove/images/footprint.png' alt='' />
+                    <img src='/images/footprint.png' alt='' />
                   </li>
                 </ul>
                 <a href='./product.html' className='btn'>

@@ -2,6 +2,7 @@ import React from 'react';
 import footprintImg from '/images/footprint.png'; // 使用相对路径引入图片
 import bannerDog from '/images/bannerDog.png';
 import bannerDogFrameOrange from '/images/bannerDogFrameOrange.png';
+import bannerDogFrame from '/images/bannerDogFrame.png';
 import bannerCatFame from '/images/bannerCatFame.png';
 import bannercat from '/images/bannercat.png';
 function Banner() {
@@ -49,7 +50,7 @@ function Banner() {
             />
             <img
               className='bannerDogWhiteFrame position-absolute'
-              src='/MERN-petslove/images/bannerDogframe.png'
+              src={bannerDogFrame}
               alt=''
             />
           </div>

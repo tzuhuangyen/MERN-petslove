@@ -1,5 +1,8 @@
 import React from 'react';
 import footprintImg from '/images/footprint.png'; // 使用相对路径引入图片
+import aboutJC1 from '/images/aboutJC1.png';
+import aboutJC2 from '/images/aboutJC2.jpg';
+import aboutJC3 from '/images/aboutJC3.png';
 
 function About() {
   return (
@@ -17,11 +20,7 @@ function About() {
             </span>
           </h2>
           <div className='card align-items-center text-center'>
-            <img
-              src='/MERN-petslove/images/about JC1.png'
-              className='card-img-top'
-              alt='about'
-            />
+            <img src={aboutJC1} className='card-img-top' alt='about' />
             <div className='card-body'>
               <h5 className='card-title'>Fresh</h5>
               <p className='card-text'>
@@ -31,9 +30,9 @@ function About() {
             </div>
           </div>
           <div className='card align-items-center text-center'>
-            <img src='/MERN-petslove/im' className='card-img-top' alt='about' />
+            <img src={aboutJC2} className='card-img-top' alt='about' />
             <div className='card-body'>
-              <h5 className='card-title'>No</h5>
+              <h5 className='card-title'>No preservatives</h5>
               <p className='card-text'>
                 Preservative-free fresh food has extended the lifespan of our
                 pets
@@ -41,11 +40,7 @@ function About() {
             </div>
           </div>
           <div className='card align-items-center text-center'>
-            <img
-              src='/MERN-petslove/images/about JC1.png'
-              className='card-img-top'
-              alt='...'
-            />
+            <img src={aboutJC3} className='card-img-top' alt='...' />
             <div className='card-body'>
               <h5 className='card-title'>Limited</h5>
               <p className='card-text'>
@@ -71,11 +66,7 @@ function About() {
         </h2>
         <ul className='card-bodys'>
           <li className='card-body about1'>
-            <img
-              className='aboutImg1'
-              src='/MERN-petslove/images/about JC1.png'
-              alt='aboutImg1'
-            />
+            <img className='aboutImg1' src={aboutJC1} alt='aboutJC1' />
             <h3 className='card-title'>Fresh</h3>
             <p className='card-text'>
               For the pet's health, we go to the market every early morning to
@@ -84,11 +75,7 @@ function About() {
           </li>
 
           <li className='card-body about2'>
-            <img
-              className='aboutImg2'
-              src='/images/about2.jpg'
-              alt='aboutImg2'
-            />
+            <img className='aboutImg2' src={aboutJC2} alt='aboutJC2' />
             <h3 className='card-title'>No preservatives</h3>
             <p className='card-text'>
               Preservative-free fresh food has extended the lifespan of our
@@ -97,11 +84,7 @@ function About() {
           </li>
 
           <li className='card-body about3'>
-            <img
-              className='aboutImg3'
-              src='/MERN-petslove/images/aboutimg3.png'
-              alt='aboutImg3'
-            />
+            <img className='aboutImg3' src={aboutJC3} alt='aboutJC3' />
             <h3 className='card-title'>Limited</h3>
             <p className='card-text'>
               Fresh ingredients are combined with full-cycle high-temperature

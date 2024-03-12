@@ -68,7 +68,7 @@ function Review() {
                       </a>
 
                       <div className='card-body'>
-                        <h5 className='card-title m-0'>Fish</h5>
+                        <h5 className='card-title m-0'>chicken</h5>
                         <div className='w-100 text-center'></div>
                       </div>
                     </div>
@@ -80,13 +80,13 @@ function Review() {
                 <div className='row d-flex'>
                   {/* <!-- review dog&cat --> */}
                   <div className='col-12 col-md-5 d-flex flex-column p-0'>
-                    {/* <!-- dog reviews --> */}
+                    {/* <!-- cat reviews --> */}
                     <div className='card mt-7 mb-1 mx-3 mx-md-0 my-md-0 py-md-4 ps-md-8'>
                       {/* <!-- 評價 --> */}
                       <div className='card-body p-5 review-cardBody'>
                         {/* <!-- 頭像 --> */}
                         <img
-                          src='/MERN-petslove/images/review-dog.png'
+                          src='/MERN-petslove/images/review-cat.png'
                           className='text-center reviewPetPic pt-3 pb-2'
                           alt='dogImg'
                         />
@@ -114,7 +114,7 @@ function Review() {
                       </a>
 
                       <div className='card-body'>
-                        <h5 className='card-title m-0'>超鮮雞肉條寵食</h5>
+                        <h5 className='card-title m-0'>chicken</h5>
                         <div className='w-100 text-center'></div>
                       </div>
                     </div>
@@ -132,18 +132,20 @@ function Review() {
                       <div className='card-body p-5 review-cardBody'>
                         {/* <!-- 頭像 --> */}
                         <img
-                          src='/MERN-petslove/images/review-dog.png'
+                          src='/MERN-petslove/images/review-dog3.png'
                           className='text-center reviewPetPic pt-3 pb-2'
                           alt='dogImg'
                         />
-                        <h5 className='card-title fs-5 mb-0'>NiNi・2歲</h5>
+                        <h5 className='card-title fs-5 mb-0'>NiNi・2yo</h5>
                         <div className='ratings mb-md-3'>
                           <div className='empty_star'>★★★★★</div>
                           <div className='full_star'>★★★★★</div>
                         </div>
 
                         <p className='card-text'>
-                          自從奴才幫我買了超鮮雞肉條，潔牙我的癢癢牙齒，我每天都乖乖不亂吠，這樣才可以吃更多JC的寵食
+                          Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Minima assumenda, totam corporis rem quos
+                          voluptatibus.
                         </p>
                       </div>
                     </div>
@@ -160,7 +162,7 @@ function Review() {
                       </a>
 
                       <div className='card-body'>
-                        <h5 className='card-title m-0'>超鮮雞肉條寵食</h5>
+                        <h5 className='card-title m-0'>beef</h5>
                         <div className='w-100 text-center'></div>
                       </div>
                     </div>

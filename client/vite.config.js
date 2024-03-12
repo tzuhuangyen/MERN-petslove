@@ -13,13 +13,13 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'docs',
+    outDir: 'dist',
     emptyOutDir: false, // 设置为 false，防止构建时清空输出目录
     assetsDir: '.', // 将资源文件输出到名为 assets 的子目录中
     rollupOptions: {
       input: {
         // 相对于项目根目录的路径
-        main: path.resolve(__dirname, 'main.jsx'),
+        main: path.resolve(__dirname, 'index.html'),
       },
       output: {
         entryFileNames: ({ name }) => `assets/${name}.js`,
