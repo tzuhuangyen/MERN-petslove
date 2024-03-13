@@ -2,12 +2,12 @@
   {
     "id": "1",
     "name": " Beer ",
-    "img_url": "/MERN-petslove/client/public/MERN-petslove/client/public/images/review-dog.png",
+    "img_url": "/MERN-petslove/client/public/images/review-dog.png",
     "age": 2,
     "review": "One of the standout features of Pets Fish Snack is the quality of ingredients. It's evident that the snack is made from real fish, which is a great source of protein for pets. Knowing that it contains wholesome ingredients gives me peace of mind that I'm providing my pet with a nutritious treat.",
     "productName": "fish",
 
-    "productImg": "/MERN-petslove/client/public/MERN-petslove/client/public/images/review.png"
+    "productImg": "/MERN-petslove/client/public/images/review.png"
   },
   {
     "id": "2",
