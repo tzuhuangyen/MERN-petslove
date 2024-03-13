@@ -1,5 +1,6 @@
 import React from 'react';
 import footprint from '/images/footprint.png';
+
 import article1 from '/images/article1.png';
 import article2 from '/images/article2.png';
 import article3 from '/images/article3.png';
@@ -72,17 +73,17 @@ function Blog() {
         <div className='container'>
           <h2 className='text-center pt-md-8'>
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='footprint' />
+              <img src={footprint} alt='footprint' />
             </span>
             Pet's Blog
             <span>
-              <img src='/MERN-petslove/images/footprint.png' alt='footprint' />
+              <img src={footprint} alt='footprint' />
             </span>
           </h2>
           <div className='card shadow-sm p-3 mb-5 bg-body rounded'>
             <div className='row'>
               <div className='col-md-4'>
-                <img src='#' alt='article1' />
+                <img src={article1} alt='article1' />
               </div>
               <div className='col-md-8'>
                 <div className='card-body'>
@@ -96,9 +97,9 @@ function Blog() {
                     過去常常誤解豬肉難消化，容易有寄生蟲，其實只要來源衛生，選擇衛生、有合格認證的肉品來源，避免來路不明的劣質豬肉，才能帶給毛孩安全又美味的豬料理喔！
                   </p>
 
-                  {/* <a className="moreBtn" href="./articleDetail.html">
+                  <a className='moreBtn' href='./articleDetail.html'>
                     More
-                  </a> */}
+                  </a>
                 </div>
               </div>
             </div>
@@ -106,7 +107,7 @@ function Blog() {
           <div className='card shadow-sm p-3 mb-5 bg-body rounded'>
             <div className='row'>
               <div className='col-md-4'>
-                <img src='/MERN-petslove/images/article2.png' alt='...' />
+                <img src={article2} alt='article2' />
               </div>
               <div className='col-md-8'>
                 <div className='card-body'>
@@ -119,9 +120,9 @@ function Blog() {
                   <p className='card-text'>
                     過去常常誤解豬肉難消化，容易有寄生蟲，其實只要來源衛生，選擇衛生、有合格認證的肉品來源，避免來路不明的劣質豬肉，才能帶給毛孩安全又美味的豬料理喔！
                   </p>
-                  {/* <a className="moreBtn" href="./articleDetail.html">
+                  <a className='moreBtn' href='./articleDetail.html'>
                     More
-                  </a> */}
+                  </a>
                 </div>
               </div>
             </div>
@@ -129,7 +130,7 @@ function Blog() {
           <div className='card shadow-sm p-3 mb-5 bg-body rounded'>
             <div className='row'>
               <div className='col-md-4'>
-                <img src='/MERN-petslove/images/article3.png' alt='...' />
+                <img src={article3} alt='article3' />
               </div>
               <div className='col-md-8'>
                 <div className='card-body'>
@@ -142,9 +143,9 @@ function Blog() {
                   <p className='card-text'>
                     過去常常誤解豬肉難消化，容易有寄生蟲，其實只要來源衛生，選擇衛生、有合格認證的肉品來源，避免來路不明的劣質豬肉，才能帶給毛孩安全又美味的豬料理喔！
                   </p>
-                  {/* <a className="moreBtn" href="./articleDetail.html">
+                  <a className='moreBtn' href='./articleDetail.html'>
                     More
-                  </a> */}
+                  </a>
                 </div>
               </div>
             </div>

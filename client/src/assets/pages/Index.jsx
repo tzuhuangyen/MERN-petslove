@@ -4,6 +4,7 @@ import About from './About';
 import Type from './Type';
 import Review from './Review';
 import Blog from './Blog';
+import reviewers from '../../../public/db.json';
 
 function Index() {
   return (
@@ -11,7 +12,7 @@ function Index() {
       <Banner />
       <About />
       <Type />
-      <Review />
+      <Review slides={reviewers} />
       <Blog />
     </>
   );

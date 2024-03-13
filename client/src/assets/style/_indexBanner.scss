@@ -378,6 +378,7 @@
 // -------end of types-------
 
 // -------start of review-------
+//review h2
 .review {
   h2 {
     margin-top: 40px;
@@ -394,6 +395,7 @@
     }
   }
 }
+//review card/ cardBody 箭頭
 .reviewSwiper {
   .card {
     align-items: center;
@@ -403,16 +405,17 @@
   .review-cardBody {
     position: relative;
     right: 0;
-    background-color: $primary;
-    border-radius: 24px 24px 24px 0;
+    background-color: #f8dbb8;
+    border-radius: 24px 24px 24px 24px;
     @include media-breakpoint-up(md) {
       border-radius: 24px;
     }
     &:after {
+      //手機版向下剪頭
       content: '';
       position: absolute;
       right: calc(50% - 12px);
-      bottom: -18px;
+      bottom: -17px;
       transform: rotate(90deg);
       width: 0;
       height: 0;
@@ -420,12 +423,16 @@
       border-style: solid;
       border-color: transparent transparent transparent $primary;
       @include media-breakpoint-up(md) {
-        left: 183px;
+        left: 255px;
+        top: 100px;
+        transform: rotate(1deg);
       }
     }
   }
 }
+//review cardBody
 .review-cardBody {
+  padding: 32px;
   .reviewPetPic {
     margin: 18px 18px 18px 36px;
     position: absolute;
@@ -464,104 +471,92 @@
     width: 100%;
   }
 }
-.btn {
-  background-color: #f9d6e2;
-  border-radius: 70px;
-  padding: 10px 24px;
 
-  &:hover {
-    transform: scale(1.2);
-  }
-}
-
-// // 先把預設的左右箭頭設為空值
-// .swiper-button-next:after,
-// .swiper-button-prev:after {
-//   content: '';
+//1.先把預設的左右箭頭設為空值
+// .swiper-control {
+//   .swiper-button-next:after,
+//   .swiper-button-prev:after {
+//     content: '';
+//   }
 // }
-// 再重新設定左右箭頭大小顏色
-.review {
-  .swiper {
-    .swiper-button-prev,
-    .swiper-button-next {
-      width: 40px; /* 定义箭头的宽度 */
-      height: 40px; /* 定义箭头的高度 */
-      background-color: rgba(255, 255, 255, 0.5); /* 设置箭头的背景颜色 */
-      border-radius: 50%; /* 设置箭头为圆形 */
-      display: flex; /* 设置箭头为弹性盒子以便居中内容 */
-      justify-content: center; /* 水平居中内容 */
-      align-items: center; /* 垂直居中内容 */
-      cursor: pointer; /* 鼠标悬停时显示指针 */
-    }
-  }
-}
 
-.review {
-  .swiper {
-    .swiper-button-prev::before,
-    .swiper-button-next::before {
-      content: ''; /* 使用伪元素添加箭头图标 */
-      border-style: solid; /* 设置为实线 */
-      border-width: 2px 2px 0 0; /* 定义箭头的大小和方向 */
-      display: inline-block; /* 设置为内联块级元素 */
-      width: 10px; /* 定义箭头的宽度 */
-      height: 10px; /* 定义箭头的高度 */
-      transform: rotate(-45deg); /* 旋转箭头，使其成为左箭头或右箭头 */
-      border-color: #333; /* 设置箭头的颜色 */
-    }
-    .swiper-button-next::before {
-      transform: rotate(135deg); /* 设置为右箭头 */
-    }
+//2.再重新設定左右箭頭大小顏色
+// .review {
+//   //左右圓型样式
+//   .swiper-control {
+//     .swiper-button-prev,
+//     .swiper-button-next {
+//       width: 50px; /* 定义的左右圓型宽度 */
+//       height: 50px; /* 定义左右圓型的高度 */
+//       background-color: rgba(240, 240, 240, 0.4); /* 设置箭头的背景颜色 */
+//       border-radius: 50%; /* 设置箭头为圆形 */
+//       display: flex; /* 设置箭头为弹性盒子以便居中内容 */
+//       justify-content: center; /* 水平居中内容 */
+//       align-items: center; /* 垂直居中内容 */
+//       cursor: pointer; /* 鼠标悬停时显示指针 */
+//     }
+//   }
+// }
+//使用伪元素添加箭头图标
+// .review {
+//   .swiper-control {
+//     .swiper-button-prev::after,
+//     .swiper-button-next::before {
+//       content: ''; /* 使用伪元素添加箭头图标 */
+//       border-style: solid; /* 设置为实线 */
+//       display: inline-block; /* 设置为内联块级元素 */
+//       border-width: 2px 2px 0 0; /* 定义箭头的大小和方向 */
+//       width: 30px; /* 定义箭头的宽度 */
+//       height: 30px; /* 定义箭头的高度 */
+//       border-color: rgba(188, 188, 188, 0.4); /* 设置箭头的颜色 */
+//       position: relative; /* 相对定位，用于后面的旋转 */
+//     }
+//     .swiper-button-prev::after {
+//       transform: rotate(230deg); /* 设置为左箭头 */
+//     }
+//     .swiper-button-next::before {
+//       transform: rotate(45deg); /* 设置为右箭头 */
+//       // 调整箭头位置
+//       .swiper-button-prev,
+//       .swiper-button-next {
+//         top: 50%; /* 使箭头垂直居中 */
+//         transform: translateY(-50%); /* 平移箭头使其垂直居中 */
+//         width: 30px; /* 設定箭頭的寬度 */
+//         height: 30px; /* 設定箭頭的高度 */
+//         background-color: transparent; /* 箭頭背景色透明 */
+//         border: none; /* 移除箭頭的邊框 */
+//         cursor: pointer; /* 改變滑鼠游標為指示箭頭的樣式 */
+//         position: absolute; /* 絕對定位，以便位置調整 */
+//         transform: rotate(-135deg); /* 旋转箭头，使其成为左箭头 */
+//       }
+//     }
+//   }
+// }
 
-    .swiper-button-prev:hover,
-    .swiper-button-next:hover {
-      background-color: rgba(
-        255,
-        255,
-        255,
-        0.8
-      ); /* 鼠标悬停时改变箭头的背景颜色 */
-    }
-
-    /* 禁用箭头样式 */
-    .swiper-button-prev.swiper-button-disabled,
-    .swiper-button-next.swiper-button-disabled {
-      opacity: 0.5; /* 降低透明度表示箭头被禁用 */
-      cursor: not-allowed; /* 禁用鼠标指针 */
-    }
-    // 綠色點點分頁位置reset
-    .swiper-pagination {
-      position: unset;
-      width: auto !important;
-
-      //桌機版 左右箭頭＋點點分頁位置設定
-      .swiper-button {
-        bottom: 30%;
-        left: 35%;
-        transform: translateX(-50%);
-        z-index: 1;
-      }
-      // 手機版左右箭頭＋點點分頁位置設定
-      .swiper-control {
-        position: absolute;
-        transform: none;
-        bottom: 0px;
-        left: 150px;
-      }
-
-      // 點點
-      .swiper-pagination-bullet {
-        background-color: $primary;
-        opacity: initial;
-        // 分頁點點點及後的效果
-        &-active {
-          width: 16px;
-          border-radius: 100px;
-        }
-      }
-    }
-  }
-}
+// .swiper-control {
+//   position: relative;
+//   transform: none;
+//   bottom: 0px;
+//   left: 150px;
+//   transform: translateX(-50%); /* 將左上角定位點設置在元素中心 */
+// }
+// .swiper-pagination-bullet {
+//   position: absolute;
+//   bottom: 0;
+//   left: 50px;
+//   background-color: $primary; /* 將背景顏色設置為您的主色 */
+// }
+// .swiper-pagination-bullet-active {
+//   width: 16px; /* 調整活動點點的大小 */
+//   border-radius: 100px; /* 圓角 */
+// }
+// .swiper-pagination {
+//   position: absolute; /* 調整分頁點點的位置 */
+//   bottom: 10px; /* 距離底部的距離 */
+//   left: 50%; /* 將分頁點點置中 */
+//   transform: translateX(-50%); /* 水平居中 */
+//   width: auto !important; /* 讓分頁點點寬度自適應內容 */
+// }
 
 // -------end of review-------
 
