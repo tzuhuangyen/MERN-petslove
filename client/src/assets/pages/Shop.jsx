@@ -147,54 +147,54 @@ const Shop = () => {
   const [initData, setInitData] = useState([]);
 
   //create products card
-  // const CreateCard = (jsonData) => {
-  //   return (
-  //     <>
-  //       {' '}
-  //       <div className='col'>
-  //         <div className='card mb-4 shadow-sm productCard'>
-  //           <img
-  //             src={jsonData.img_url}
-  //             className='card-img-top object-fit '
-  //             alt='product'
-  //           />
-  //           <div className='card-body'>
-  //             <p className='card-title'>
-  //               {jsonData.name}
-  //               <span className='card-text float-end'>${jsonData.price}</span>
-  //             </p>
-  //             <div className='d-flex justify-content-between align-end  '>
-  //               <p className='card-text'>Type: {jsonData.type}</p>
-  //               <span className='card-text'>{jsonData.order}</span>
-  //             </div>
-  //             <div className='btns cardBtns'>
-  //               <button
-  //               // className={`btnHeart btn-purple-outline ${
-  //               //   isProductFavorite ? 'favorited' : ''
-  //               // }`}
-  //               // onClick={() => toggleFavorite(jsonData.id)}
-  //               >
-  //                 <MdFavoriteBorder />
-  //               </button>
-  //               <button
-  //                 type='button'
-  //                 className=' btnCart'
-  //                 // onClick={() => {
-  //                 //   dispatch({
-  //                 //     type: 'ADD_TO_CART',
-  //                 //     payload: { ...jsonData, quantity: 1 },
-  //                 //   });
-  //                 // }}
-  //               >
-  //                 <CiShoppingCart />
-  //               </button>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </>
-  //   );
-  // };
+  const ProductCard = (initData) => {
+    return (
+      <>
+        <div className='col'>
+          <div className='card mb-4 shadow-sm productCard'>
+            <img
+              key={initData._id}
+              src={initData.filepath}
+              className='card-img-top object-fit '
+              alt={initData.productName}
+            />
+            <div className='card-body'>
+              <p className='card-title'>
+                {initData.productName}
+                <span className='card-text float-end'>${initData.price}</span>
+              </p>
+              <div className='d-flex justify-content-between align-end  '>
+                <p className='card-text'>Type: {initData.type}</p>
+                <span className='card-text'>{initData.order}</span>
+              </div>
+              <div className='btns cardBtns'>
+                <button
+                // className={`btnHeart btn-purple-outline ${
+                //   isProductFavorite ? 'favorited' : ''
+                // }`}
+                // onClick={() => toggleFavorite(productType.id)}
+                >
+                  <MdFavoriteBorder />
+                </button>
+                <button
+                  type='button'
+                  className=' btnCart'
+                  // onClick={() => {
+                  //   dispatch({
+                  //     type: 'ADD_TO_CART',
+                  //     payload: { ...productType, quantity: 1 },
+                  //   });
+                  // }}
+                >
+                  <CiShoppingCart />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
   // 取得資料 Use useEffect to set the initial state
   useEffect(() => {
     (async () => {
@@ -213,28 +213,35 @@ const Shop = () => {
 
   return (
     <div>
-      <h1>React data test render</h1>
-      {JSON.stringify(initData)}
-      {initData.map((data) => {
-        return (
-          <div key={data.id}>
-            <p>{data.type}</p>
-            <p>{data.price}</p>
-            <p>{data.order}</p>
-          </div>
-        );
-      })}
-
-      {/* {jsonData.map((data) => {
-        return <CreateCard jsonData={data} key={data.id} />;
-      })} */}
+      <h1 className='mt-5 mb-4'>products list</h1>
+      <div className='row'>
+        {initData.map((data) => (
+          <ProductCard
+            key={data._id}
+            img={data.filename}
+            productName={data.productName}
+            type={data.type}
+            order={data.order}
+            price={data.price}
+          />
+        ))}
+        {/* <div className='col-md-5'>cart</div> */}
+      </div>
     </div>
   );
+
+  {
+    /* {jsonData.map((data) => {
+        return <CreateCard jsonData={data} key={data.id} />;
+      })} */
+  }
 };
 
-// function caleTotalPrice(cartList) {
-//   return cartList
-//     .map((item) => item.quantity * item.price)
-//     .reduce((a, b) => a + b, 0);
-// }
+{
+  /* function caleTotalPrice(cartList) {
+  return cartList
+    .map((item) => item.quantity * item.price)
+    .reduce((a, b) => a + b, 0);
+} */
+}
 export default Shop;

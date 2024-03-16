@@ -14,7 +14,8 @@ import SignUp from './assets/pages/SignUp';
 import Login from './assets/pages/Login';
 import Member from './assets/pages/Member';
 import Footer from './assets/pages/Footer';
-
+import AdminIndex from './assets/pages/AdminIndex';
+import AdminUploadProduct from './assets/pages/AdminUploadProduct';
 function App() {
   const [usersData, setUsersData] = useState([]);
 
@@ -50,6 +51,8 @@ function App() {
         {/* <Route path="/favorite" element={<Favorite />} /> */}
         <Route path='/users/member' element={<Member />} />
         <Route path='/blog' element={<Blog />} />
+        <Route path='/admin' element={<AdminIndex />} />
+        <Route path='/admin/uploadProduct' element={<AdminUploadProduct />} />
       </Routes>
 
       <Footer />

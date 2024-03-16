@@ -5,7 +5,6 @@ import Type from './Type';
 import Review from './Review';
 import Blog from './Blog';
 import reviewers from '../../../public/db.json';
-
 function Index() {
   return (
     <>
