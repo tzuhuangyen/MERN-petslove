@@ -411,7 +411,7 @@
       border-radius: 24px;
     }
     &:after {
-      //手機版向下剪頭
+      // 箭頭
       content: '';
       position: absolute;
       right: calc(50% - 12px);
@@ -423,8 +423,8 @@
       border-style: solid;
       border-color: transparent transparent transparent $primary;
       @include media-breakpoint-up(md) {
-        left: 255px;
-        top: 100px;
+        left: 459px;
+        top: 160px;
         transform: rotate(1deg);
       }
     }
