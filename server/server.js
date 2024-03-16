@@ -2,29 +2,16 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-// const mongoose = require('mongoose');
-// const fs = require('fs');
+
 const connectDB = require('./connectMongo');
 connectDB();
+
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
-
-// 获取默认连接
-// const database = mongoose.connection;
-// 监听数据库连接成功事件
-// database.on('connected', () => {
-//   console.log('databaseOn connected 成功 successfully');
-// });
-// 监听数据库连接失败事件
-// database.on('error', (error) => {
-//   console.log('MongoDB connection error:', error);
-// });
-
-// database.once('connected', () => {
-//   console.log('DatabaseOnce 连接成功 Connected');
-// });
+const adminRoutes = require('./routes/adminRoutes');
 
 app.use(express.json());
+app.use(express.static('public'));
 app.use(cors());
 // 日志中间件
 app.use((req, res, next) => {
@@ -34,15 +21,15 @@ app.use((req, res, next) => {
 
 // 将用户路由挂载到 /api/users 路径下
 app.use('/users', userRoutes);
-
 // 将产品路由挂载到 /products 路径下
 app.use('/products', productRoutes);
+// 將admin路由掛載到 /admin路徑下
+app.use('/admin', adminRoutes);
 
 // 错误处理程序
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something broke!');
-  next();
 });
 // 404 错误处理程序
 app.use((req, res, next) => {
