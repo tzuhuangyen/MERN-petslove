@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-  id: String,
-  name: {
+  filename: {
     type: String,
-    required: [true, 'enter product name'],
+    required: true,
   },
+  filepath: {
+    type: String,
+    required: true,
+  },
+  // id: String,
 
-  img_url: String,
+  // img_url: String,
   price: {
     type: Number,
     required: [true, 'enter price'],

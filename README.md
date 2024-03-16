@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h2>github page pets love [https://tzuhuangyen.github.io/MERN-petslove/]</h2>
 
 <ul>Frontend</ul>
@@ -13,3 +14,6 @@
 <li>/admin/Business income analysis</li>
 
 ...to be continued
+=======
+https://tzuhuangyen.github.io/MERN-petslove/
+>>>>>>> 7f04f2e (shop)
