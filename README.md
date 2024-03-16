@@ -1,4 +1,4 @@
-<h2> <a ref="https://tzuhuangyen.github.io/MERN-petslove/">pets love webpage </a> </h2>
+<h2> pets love webpage [https://tzuhuangyen.github.io/MERN-petslove/] </h2>
 
 <ul>Frontend</ul>
 <li>index > swiper Bootstrap RWD</li>
