@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { response } from 'express';
 
 function AdminProduct() {
   const [file, setFile] = useState(null);
+  const [image, setImage] = useState();
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [order, setOrder] = useState('');
   const [type, setType] = useState('');
   const [description, setDescription] = useState('');
+  const [backendUrl, setBackendUrl] = useState('');
+
+  //获取后端配置信息
+  useEffect(() => {
+    axios
+      .get('/api/config')
+      .then((response) => {
+        const backendUrl = response.data.backendUrl;
+        setBackendUrl(backendUrl);
+      })
+      .catch((error) => console.error('Error fetching config:', error));
+  }, []);
 
   const handleUpload = (e) => {
     const formData = new FormData();
@@ -18,22 +32,27 @@ function AdminProduct() {
     formData.append('type', type);
     formData.append('order', order);
     try {
-      const response = axios.post(
-        'http://localhost:8080/admin/upload',
-        formData
-      );
-
-      const data = response.data;
-      console.log(data);
+      axios
+        .post(`${backendUrl}/admin/upload`, formData)
+        .then((response) => {
+          console.log(response.data);
+          console.log(file);
+        })
+        .catch((error) => console.error('Error:', error));
     } catch (error) {
       console.error('Error:', error);
     }
   };
-  //test upload
+  //test uploadfs
   //   const handleUpload = (e) => {
   //     console.log(file);
   //   };
-
+  // useEffect(() => {
+  //   axios
+  //     .get('http://localhost:8080/getImage')
+  //     .then((res) => setImage(res.data[0].image))
+  //     .catch((err) => console.log(err));
+  // });
   return (
     <div>
       <Container className='mt-5 mb-5'>
@@ -41,13 +60,18 @@ function AdminProduct() {
         <Row className='justify-content-md-center'>
           <Col md={6}>
             <Form>
+              {/* <img src={`http://localhost:8080/Images/` + image} alt='' /> */}
               <Form.Group controlId='formFile'>
                 <Form.Label>choose image</Form.Label>
                 <Form.Control
                   type='file'
                   onChange={(e) => setFile(e.target.files[0])}
                 />
-              </Form.Group>
+              </Form.Group>{' '}
+            </Form>
+          </Col>
+          <Col md={6}>
+            <Form>
               <Form.Group controlId='productName'>
                 <Form.Label>product name</Form.Label>
                 <Form.Control

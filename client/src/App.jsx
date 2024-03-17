@@ -52,7 +52,10 @@ function App() {
         <Route path='/users/member' element={<Member />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/admin' element={<AdminIndex />} />
-        <Route path='/admin/uploadProduct' element={<AdminUploadProduct />} />
+        <Route
+          path='/admin/productList/uploadProduct'
+          element={<AdminUploadProduct />}
+        />
       </Routes>
 
       <Footer />

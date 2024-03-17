@@ -27,7 +27,7 @@ function AdminIndex() {
           </div>
           <div className='col-9'>
             <Button className='btn btn-primary'>
-              <a href='/admin/uploadProduct'>Add new product</a>
+              <a href='/admin/productList/uploadProduct'>Add new product</a>
             </Button>
             <Table striped bordered hover>
               <thead>
