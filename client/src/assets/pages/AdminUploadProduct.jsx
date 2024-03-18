@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { response } from 'express';
-
+import { Container, Row, Col, Form, Button, Table } from 'react-bootstrap';
+import { FiEdit2 } from 'react-icons/fi';
+import { MdOutlineDeleteForever } from 'react-icons/md';
 function AdminProduct() {
-  const [file, setFile] = useState(null);
-  const [image, setImage] = useState();
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [order, setOrder] = useState('');
   const [type, setType] = useState('');
   const [description, setDescription] = useState('');
   const [backendUrl, setBackendUrl] = useState('');
+  const [file, setFile] = useState(null);
+  const [uploadedProducts, setUploadedProducts] = useState([]);
 
   //获取后端配置信息
   useEffect(() => {
@@ -24,29 +24,70 @@ function AdminProduct() {
       .catch((error) => console.error('Error fetching config:', error));
   }, []);
 
+  const handleFileChange = (e) => {
+    const selectedFiles = e.target.files; // 取得選擇的所有文件
+    const filesArray = Array.from(selectedFiles);
+    console.log(filesArray);
+    setFile(filesArray);
+  };
+
   const handleUpload = (e) => {
+    e.preventDefault();
     const formData = new FormData();
-    formData.append('file', file);
+    // 添加所有選擇的文件到 FormData 中
+    for (let i = 0; i < file.length; i++) {
+      formData.append(`file`, file[i]);
+    }
+    // formData.append('file', file);
     formData.append('productName', productName);
     formData.append('price', price);
     formData.append('type', type);
     formData.append('order', order);
+    formData.append('description', description);
+    console.log(formData);
     try {
       axios
-        .post(`${backendUrl}/admin/upload`, formData)
+        .post(`${backendUrl}/admin/productList/upload`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data', // 設置 Content-Type
+          },
+        })
+
+        // .post('localhost:8080/admin/upload', formData)
         .then((response) => {
           console.log(response.data);
           console.log(file);
-        })
-        .catch((error) => console.error('Error:', error));
+          // 提取圖片路徑並放入 uploadedProducts 中的 images 屬性
+          const imageUrl = response.data.imageUrl;
+          // 將上傳的資訊添加到 uploadedProducts 中
+          setUploadedProducts([
+            ...uploadedProducts,
+            {
+              productName,
+              price,
+              type,
+              order,
+              description,
+              images: [imageUrl], // 將圖片路徑放入 images 屬性中
+            },
+          ]);
+          //clear all input
+          setFile(null);
+          setProductName('');
+          setPrice('');
+          setType('');
+          setOrder('');
+          setDescription('');
+          // 更新商品列表
+          setUploadedProducts([...uploadedProducts, response.data]);
+
+          alert('上傳成功');
+        });
     } catch (error) {
       console.error('Error:', error);
     }
   };
-  //test uploadfs
-  //   const handleUpload = (e) => {
-  //     console.log(file);
-  //   };
+
   // useEffect(() => {
   //   axios
   //     .get('http://localhost:8080/getImage')
@@ -60,13 +101,26 @@ function AdminProduct() {
         <Row className='justify-content-md-center'>
           <Col md={6}>
             <Form>
-              {/* <img src={`http://localhost:8080/Images/` + image} alt='' /> */}
               <Form.Group controlId='formFile'>
                 <Form.Label>choose image</Form.Label>
                 <Form.Control
                   type='file'
-                  onChange={(e) => setFile(e.target.files[0])}
+                  multiple // 允許選擇多個文件
+                  // onChange={(e) => setFile(e.target.files[0])}
+                  onChange={handleFileChange}
                 />
+                {/* 選擇的文件顯示在網頁上作為圖片。 */}
+                {file && (
+                  <>
+                    {file.map((selectedFile, index) => (
+                      <img
+                        key={index}
+                        src={URL.createObjectURL(selectedFile)}
+                        alt={`Selected file ${index}`}
+                      />
+                    ))}
+                  </>
+                )}
               </Form.Group>{' '}
             </Form>
           </Col>
@@ -124,6 +178,44 @@ function AdminProduct() {
             </Form>
           </Col>
         </Row>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Image</th>
+
+              <th>Name</th>
+              <th>Type</th>
+              <th>Order</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {uploadedProducts.map((product, index) => (
+              <tr key={index}>
+                <td>
+                  {product.images && product.images.length > 0 && (
+                    <img
+                      src={product.images[0]}
+                      alt={`Image`}
+                      style={{ maxWidth: '100px', maxHeight: '100px' }}
+                    />
+                  )}
+                </td>
+                <td>{index + 1}</td>
+                <td>{product.productName}</td>
+                <td>{product.type}</td>
+                <td>{product.order}</td>
+                <td>{product.price}</td>
+                <td>
+                  <FiEdit2 />
+                  <MdOutlineDeleteForever />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
       </Container>
     </div>
   );

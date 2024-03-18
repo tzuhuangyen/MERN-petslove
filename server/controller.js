@@ -3,25 +3,33 @@
 const expressHandler = require('express-async-handler');
 const productModel = require('./models/productModel');
 // 导入产品模型，用于数据库操作
+//展示如何在後端路由中處理錯誤並返回適當的 JSON 對象
 const postProduct = expressHandler(async (req, res) => {
   try {
     if (!req.file) {
       return res.status(500).json({ error: 'No file uploaded' });
     }
+    // 从请求中获取上传的文件信息
+    const file = req.file;
     // 从请求体中获取其他資訊 并使用这些字段创建了一个产品对象，并将其保存到数据库中
-    const { price, type, order } = req.body;
+    const { productName, price, type, order, description } = req.body;
     // 创建产品对象
-    const productFile = productModel({
-      filename: req.file.filename,
-      filepath: req.file.path,
+    const productFile = new productModel({
+      filename: file.filename,
+      filepath: file.path,
+      productName: productName,
       price: price,
       type: type,
       order: order,
+      description: description,
+      imageUrl: file.path, // 存储上传文件的路径
     });
+
     const saveProduct = await productFile.save();
     res.status(200).json({ message: 'File uploaded successfully' });
   } catch (error) {
-    console.log(error);
+    console.error('Error in postProduct:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 module.exports = postProduct;

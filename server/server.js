@@ -19,6 +19,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// This is a function that takes in 'req' and 'res' objects as parameters.
+// The function is expected to return a JSON response.
+app.get('/api/config', (req, res) => {
+  // The 'backendUrl' variable is assigned the value of the URL
+  // where the backend server is hosted.
+  const backendUrl = 'https://petslove-mern.onrender.com';
+  // The 'res.json()' method is used to send a JSON response to the client.
+  // Here, the JSON response contains the 'backendUrl' variable.
+  res.json({ backendUrl });
+});
 // 将用户路由挂载到 /api/users 路径下
 app.use('/users', userRoutes);
 // 将产品路由挂载到 /products 路径下
