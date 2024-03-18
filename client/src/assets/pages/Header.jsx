@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import { Navbar, Nav } from 'react-bootstrap';
 import { CiUser, CiHeart } from 'react-icons/ci';
 import Logo from '/images/Logo.png';
+import { RiAdminLine } from 'react-icons/ri';
 
 function Header() {
   return (
@@ -28,6 +29,9 @@ function Header() {
               </Nav.Link>
               <Nav.Link as={Link} to='/blog'>
                 Blog
+              </Nav.Link>
+              <Nav.Link as={Link} to='/admin'>
+                <RiAdminLine />
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
