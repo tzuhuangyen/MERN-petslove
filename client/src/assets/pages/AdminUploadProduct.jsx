@@ -36,7 +36,7 @@ function AdminProduct() {
     const formData = new FormData();
     // 添加所有選擇的文件到 FormData 中
     for (let i = 0; i < file.length; i++) {
-      formData.append(`file`, file[i]);
+      formData.append('file', file[i]);
     }
     // formData.append('file', file);
     formData.append('productName', productName);
@@ -47,13 +47,12 @@ function AdminProduct() {
     console.log(formData);
     try {
       axios
-        .post(`${backendUrl}/admin/productList/upload`, formData, {
+        .post(`${backendUrl}/admin/products/uploadProduct`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data', // 設置 Content-Type
           },
         })
 
-        // .post('localhost:8080/admin/upload', formData)
         .then((response) => {
           console.log(response.data);
           console.log(file);
@@ -68,7 +67,7 @@ function AdminProduct() {
               type,
               order,
               description,
-              images: [imageUrl], // 將圖片路徑放入 images 屬性中
+              imageUrl: [imageUrl], // 將圖片路徑放入 images 屬性中
             },
           ]);
           //clear all input

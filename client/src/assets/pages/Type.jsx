@@ -21,7 +21,7 @@ function Type() {
 
           <div className='row d-flex justify-content-lg-between justify-content-md-center flex-wrap'>
             {/* <!-- type1 pre-order --> */}
-            <div className='col-4 card border-0 text-white shadow mb-4'>
+            <div className='col-12 col-md-4 card border-0 text-white shadow mb-4'>
               <div className='position-relative'>
                 <a href='#' className='d-block type-card-hover'>
                   <img
