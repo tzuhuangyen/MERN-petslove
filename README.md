@@ -9,8 +9,8 @@
 <br>
 <ul>Backend router</ul>
 <li>/admin > AdminIndex > productList</li>
-<li>/admin/productList/uploadProduct</li>
-<li>/admin/productList/editProductList</li>
+<li>/admin/products/uploadProduct</li>
+<li>/admin/products/editProductList</li>
 <li>/admin/orderList</li>
 <li>/admin/orderList/editOrder</li>
 
