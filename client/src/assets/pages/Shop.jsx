@@ -150,7 +150,7 @@ const Shop = () => {
   const ProductCard = (initData) => {
     return (
       <>
-        <div className='col'>
+        <div className='col-md-3 col-sm-6'>
           <div className='card mb-4 shadow-sm productCard'>
             <img
               key={initData._id}
