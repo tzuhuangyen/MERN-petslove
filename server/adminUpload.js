@@ -15,7 +15,11 @@ const storage = multer.diskStorage({
     //獲得檔案的原始名稱（名稱＋檔案格式）
     cb(
       null,
-      file.fieldname + '_' + Date.now() + path.extname(file.originalname)
+      file.name +
+        file.fieldname +
+        '_' +
+        Date.now() +
+        path.extname(file.originalname)
     );
   },
 });

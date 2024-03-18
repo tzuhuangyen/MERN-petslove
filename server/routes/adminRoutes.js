@@ -7,7 +7,7 @@ const postProduct = require('../controller');
 const ProductModel = require('../models/productModel');
 
 // 後端路由/productList/upload处理图像上传的路由
-router.post('/productList/upload', adminUpload.array('file'), postProduct);
+router.post('/products/uploadProduct', adminUpload.array('file'), postProduct);
 // router.post('/productList/upload', adminUpload.single('file'), (req, res) => {
 //   ProductModel.create({ image: require.file.filename })
 //     .then((result) => res.json(result))

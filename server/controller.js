@@ -17,12 +17,13 @@ const postProduct = expressHandler(async (req, res) => {
     const productFile = new productModel({
       filename: file.filename,
       filepath: file.path,
+      imageUrl: '/public/Images/' + file.filename,
+
       productName: productName,
       price: price,
       type: type,
       order: order,
       description: description,
-      imageUrl: file.path, // 存储上传文件的路径
     });
 
     const saveProduct = await productFile.save();
