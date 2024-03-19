@@ -9,7 +9,7 @@ function AdminProduct() {
   const [order, setOrder] = useState('');
   const [type, setType] = useState('');
   const [description, setDescription] = useState('');
-
+  const [uploadedProducts, setUploadedProducts] = useState([]);
   const handleUpload = (e) => {
     const formData = new FormData();
     formData.append('file', file);
@@ -83,11 +83,11 @@ function AdminProduct() {
                 <Form.Control
                   type='file'
                   multiple // 允許選擇多個文件
-                  // onChange={(e) => setFile(e.target.files[0])}
-                  onChange={handleFileChange}
+                  onChange={(e) => setFile(e.target.files[0])}
+                  // onChange={handleFileChange}
                 />
                 {/* 選擇的文件顯示在網頁上作為圖片。 */}
-                {file && (
+                {/* {file && (
                   <>
                     {file.map((selectedFile, index) => (
                       <img
@@ -97,7 +97,7 @@ function AdminProduct() {
                       />
                     ))}
                   </>
-                )}
+                )} */}
               </Form.Group>{' '}
             </Form>
           </Col>
