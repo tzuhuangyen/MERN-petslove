@@ -1,10 +1,8 @@
 import React from 'react';
 import { Container, Table, Button } from 'react-bootstrap';
-import { FiEdit2 } from 'react-icons/fi';
-import { MdOutlineDeleteForever } from 'react-icons/md';
-import { Nav } from 'react-bootstrap';
 
 import { Nav } from 'react-bootstrap';
+
 import { Outlet } from 'react-router-dom';
 //分兩邊
 function AdminIndex() {
