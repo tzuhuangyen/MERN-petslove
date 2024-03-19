@@ -15,7 +15,10 @@ import Login from './assets/pages/Login';
 import Member from './assets/pages/Member';
 import Footer from './assets/pages/Footer';
 import AdminIndex from './assets/pages/AdminIndex';
-import AdminUploadProduct from './assets/pages/AdminUploadProduct';
+import AdminProducts from './assets/pages/AdminProducts';
+import AdminProductUpload from './assets/pages/AdminProductUpload';
+import AdminOrders from './assets/pages/AdminOrders';
+import AdminAnalysis from './assets/pages/AdminAnalysis';
 function App() {
   const [usersData, setUsersData] = useState([]);
 
@@ -51,8 +54,16 @@ function App() {
         {/* <Route path="/favorite" element={<Favorite />} /> */}
         <Route path='/users/member' element={<Member />} />
         <Route path='/blog' element={<Blog />} />
-        <Route path='/admin' element={<AdminIndex />} />
-        <Route path='/admin/uploadProduct' element={<AdminUploadProduct />} />
+        <Route path='/admin' element={<AdminIndex />}>
+          <Route path='products' element={<AdminProducts />}></Route>
+          <Route path='orders' element={<AdminOrders />}></Route>
+          <Route path='analysis' element={<AdminAnalysis />}></Route>
+          AdminAnalysis
+        </Route>
+        <Route
+          path='/admin/products/uploadProduct'
+          element={<AdminProductUpload />}
+        ></Route>
       </Routes>
 
       <Footer />

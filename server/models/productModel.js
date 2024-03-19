@@ -9,9 +9,13 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
   // id: String,
+  productName: { type: String, required: true },
 
-  // img_url: String,
   price: {
     type: Number,
     required: [true, 'enter price'],
@@ -26,6 +30,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, 'enter product order,in stock...'],
   },
+  description: { type: String },
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Products', productSchema);
