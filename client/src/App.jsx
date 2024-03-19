@@ -58,7 +58,6 @@ function App() {
           <Route path='/admin/products' element={<AdminProducts />}></Route>
           <Route path='/admin/orders' element={<AdminOrders />}></Route>
           <Route path='/admin/analysis' element={<AdminAnalysis />}></Route>
-          AdminAnalysis
         </Route>
         <Route
           path='/admin/products/uploadProduct'
