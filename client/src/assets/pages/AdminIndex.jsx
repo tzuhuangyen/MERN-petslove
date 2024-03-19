@@ -12,12 +12,16 @@ function AdminIndex() {
         <h1>Admin</h1>
         <div className='row'>
           <div className='col-3'>
-            <Nav defaultActiveKey='/admin/products' className='flex-column '>
-              <Nav.Link href='/admin/products' active className='text-success'>
+            <Nav defaultActiveKey='../admin/products' className='flex-column '>
+              <Nav.Link
+                href='../admin/products'
+                active
+                className='text-success'
+              >
                 products
               </Nav.Link>
               <Nav.Link
-                href='/admin/orders'
+                href='../admin/orders'
                 eventKey='link-1'
                 className='text-success'
               >
@@ -25,7 +29,7 @@ function AdminIndex() {
               </Nav.Link>
 
               <Nav.Link
-                href='/admin/analysis'
+                href='../admin/analysis'
                 eventKey='link-2'
                 className='text-success'
               >
