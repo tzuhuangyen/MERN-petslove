@@ -5,7 +5,7 @@ import { MdOutlineDeleteForever } from 'react-icons/md';
 function AdminProductList() {
   return (
     <div>
-      <h1></h1>AdminProductList
+      <h1>AdminProductList</h1>
       <Container>
         <div className='col-9'>
           <Button className='btn btn-primary'>
