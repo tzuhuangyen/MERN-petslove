@@ -18,19 +18,19 @@ router.post('/products/uploadProduct', adminUpload.array('file'), postProduct);
 //   console.log(req.file);
 // });
 //這個路由可能不需要 而是改成axios mongodb取得所有產品and display
-// router.get('/productList/getImage', (req, res) => {
-//   ProductModel.find()
-//     .then((products) => {
-//       if (products) {
-//         res.json(products);
-//       } else {
-//         res.status(404).json({ message: 'No products found' });
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.status(500).json({ message: 'Internal server error' });
-//     });
-// });
+router.get('/productList/getImage', (req, res) => {
+  ProductModel.find()
+    .then((products) => {
+      if (products) {
+        res.json(products);
+      } else {
+        res.status(404).json({ message: 'No products found' });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ message: 'Internal server error' });
+    });
+});
 
 module.exports = router;
