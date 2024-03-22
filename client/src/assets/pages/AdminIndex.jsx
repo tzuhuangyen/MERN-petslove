@@ -1,49 +1,61 @@
 import React from 'react';
-import { Container, Table, Button } from 'react-bootstrap';
-
-import { Nav } from 'react-bootstrap';
-
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation, Link } from 'react-router-dom';
+import { Container, Nav, Row, Col } from 'react-bootstrap';
 //分兩邊
 function AdminIndex() {
+  const location = useLocation();
+
   return (
     <div>
-      <Container>
+      <Container fluid>
         <h1>Admin</h1>
-        <div className='row'>
-          <div className='col-3'>
-            <Nav
-              defaultActiveKey='/MERN-petslove/admin/products'
-              className='flex-column '
-            >
-              <Nav.Link
-                href='/MERN-petslove/admin/products'
-                active
-                className='text-success'
-              >
-                products
-              </Nav.Link>
-              <Nav.Link
-                href='/MERN-petslove/admin/orders'
-                eventKey='link-1'
-                className='text-success'
-              >
-                orders
-              </Nav.Link>
+        <Row>
+          <Col sm={3}>
+            <Nav className='flex-column'>
+              <Nav.Item>
+                <Link
+                  to='/admin/products'
+                  className={
+                    location.pathname === '/admin/products'
+                      ? 'nav-link active'
+                      : 'nav-link'
+                  }
+                >
+                  Products
+                </Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Link
+                  to='/admin/orders'
+                  className={
+                    location.pathname === '/admin/orders'
+                      ? 'nav-link active'
+                      : 'nav-link'
+                  }
+                >
+                  Orders
+                </Link>
+              </Nav.Item>
 
-              <Nav.Link
-                href='/MERN-petslove/admin/analysis'
-                eventKey='link-2'
-                className='text-success'
-              >
-                income analysis
-              </Nav.Link>
+              <Nav.Item>
+                <Link
+                  to='/admin/analysis'
+                  className={
+                    location.pathname === '/admin/analysis'
+                      ? 'nav-link active'
+                      : 'nav-link'
+                  }
+                >
+                  AdminAnalysis
+                </Link>
+              </Nav.Item>
             </Nav>
-          </div>
-          <div className='col-9'>
+          </Col>
+          <Col sm={9}>
             <Outlet />
-          </div>
-        </div>
+            {/* context= {test} */}
+          </Col>
+        </Row>
       </Container>
     </div>
   );
