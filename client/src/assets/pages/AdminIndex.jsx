@@ -20,12 +20,14 @@ function AdminIndex() {
                       ? 'nav-link active'
                       : 'nav-link'
                   }
+                  style={{ color: 'black' }}
                 >
                   Products
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link
+                  style={{ color: 'black' }}
                   to='/admin/orders'
                   className={
                     location.pathname === '/admin/orders'
@@ -45,6 +47,7 @@ function AdminIndex() {
                       ? 'nav-link active'
                       : 'nav-link'
                   }
+                  style={{ color: 'black' }}
                 >
                   AdminAnalysis
                 </Link>

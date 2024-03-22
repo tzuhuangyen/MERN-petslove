@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Container, Row, Col, Form, Button, Table } from 'react-bootstrap';
 import { FiEdit2 } from 'react-icons/fi';
 import { MdOutlineDeleteForever } from 'react-icons/md';
+
+const backendUrl = 'https://petslove-mern.onrender.com';
 function AdminProduct() {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
@@ -10,7 +12,11 @@ function AdminProduct() {
   const [type, setType] = useState('');
   const [description, setDescription] = useState('');
   const [uploadedProducts, setUploadedProducts] = useState([]);
-  const handleUpload = (e) => {
+  const [file, setFile] = useState(null); // 追加 file 状态来存储选择的文件
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+
     const formData = new FormData();
     formData.append('file', file);
     formData.append('productName', productName);
@@ -18,46 +24,46 @@ function AdminProduct() {
     formData.append('type', type);
     formData.append('order', order);
     formData.append('description', description);
-    console.log(formData);
+
+    console.log(file);
     try {
-      axios
-        .post(`${backendUrl}/admin/products/uploadProduct`, formData, {
+      const response = await axios.post(
+        `${backendUrl}/admin/products/uploadProduct`,
+        formData,
+        {
           headers: {
             'Content-Type': 'multipart/form-data', // 設置 Content-Type
           },
-        })
+        }
+      );
+      // 提取响应中的图片路径
+      const imageUrl = response.data.imageUrl;
+      // 將上傳的資訊添加到 uploadedProducts 中
+      setUploadedProducts([
+        ...uploadedProducts,
+        {
+          productName,
+          price,
+          type,
+          order,
+          description,
+          imageUrl: [imageUrl], // 將圖片路徑放入 images 屬性中
+        },
+      ]);
 
-        .then((response) => {
-          console.log(response.data);
-          console.log(file);
-          // 提取圖片路徑並放入 uploadedProducts 中的 images 屬性
-          const imageUrl = response.data.imageUrl;
-          // 將上傳的資訊添加到 uploadedProducts 中
-          setUploadedProducts([
-            ...uploadedProducts,
-            {
-              productName,
-              price,
-              type,
-              order,
-              description,
-              imageUrl: [imageUrl], // 將圖片路徑放入 images 屬性中
-            },
-          ]);
-          //clear all input
-          setFile(null);
-          setProductName('');
-          setPrice('');
-          setType('');
-          setOrder('');
-          setDescription('');
-          // 更新商品列表
-          setUploadedProducts([...uploadedProducts, response.data]);
+      //clear all input
+      setFile(null);
+      console.log(formData);
 
-          alert('上傳成功');
-        });
+      setProductName('');
+      setPrice('');
+      setType('');
+      setOrder('');
+      setDescription('');
+      console.log(formData);
+      alert('上傳成功');
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error.response.data);
     }
   };
   //test upload
@@ -83,7 +89,11 @@ function AdminProduct() {
                 <Form.Control
                   type='file'
                   multiple // 允許選擇多個文件
-                  onChange={(e) => setFile(e.target.files[0])}
+                  onChange={(e) => {
+                    setFile(e.target.files[0]);
+                    console.log('file:', e.target.files[0]);
+                  }}
+
                   // onChange={handleFileChange}
                 />
                 {/* 選擇的文件顯示在網頁上作為圖片。 */}
@@ -109,7 +119,10 @@ function AdminProduct() {
                   type='text'
                   placeholder='product name'
                   value={productName}
-                  onChange={(e) => setProductName(e.target.value)}
+                  onChange={(e) => {
+                    setProductName(e.target.value);
+                    console.log('product name:', e.target.value);
+                  }}
                 />
               </Form.Group>
               <Form.Group controlId='price'>
@@ -118,7 +131,10 @@ function AdminProduct() {
                   type='text'
                   placeholder='price'
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={(e) => {
+                    setPrice(e.target.value);
+                    console.log('price:', e.target.value);
+                  }}
                 />
               </Form.Group>
               <Form.Group controlId='order'>
@@ -127,7 +143,10 @@ function AdminProduct() {
                   type='text'
                   placeholder='order'
                   value={order}
-                  onChange={(e) => setOrder(e.target.value)}
+                  onChange={(e) => {
+                    setOrder(e.target.value);
+                    console.log('order:', e.target.value);
+                  }}
                 />
               </Form.Group>
               <Form.Group controlId='type'>
@@ -136,7 +155,10 @@ function AdminProduct() {
                   type='text'
                   placeholder='type'
                   value={type}
-                  onChange={(e) => setType(e.target.value)}
+                  onChange={(e) => {
+                    setType(e.target.value);
+                    console.log('setType:', e.target.value);
+                  }}
                 />
               </Form.Group>
               <Form.Group controlId='description'>
@@ -146,7 +168,10 @@ function AdminProduct() {
                   rows={3}
                   placeholder='description'
                   value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={(e) => {
+                    setDescription(e.target.value);
+                    console.log('setDescription:', e.target.value);
+                  }}
                 />
               </Form.Group>
               <Button variant='primary' type='submit' onClick={handleUpload}>
@@ -169,7 +194,7 @@ function AdminProduct() {
             </tr>
           </thead>
           <tbody>
-            {uploadedProducts.map((product, index) => (
+            {/* {uploadedProducts.map((product, index) => (
               <tr key={index}>
                 <td>
                   {product.images && product.images.length > 0 && (
@@ -190,7 +215,7 @@ function AdminProduct() {
                   <MdOutlineDeleteForever />
                 </td>
               </tr>
-            ))}
+            ))} */}
           </tbody>
         </Table>
       </Container>
