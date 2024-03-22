@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const UserModel = require('../models/usersModel');
-const ProductModel = require('../models/productModel');
+const ProductModel = require('./imageModel');
 //先設定Schema規則
 //cartItemSchema
 //定义了购物车中每个商品项的结构

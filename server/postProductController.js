@@ -1,7 +1,7 @@
 //控制器函数，用于处理上传产品的请求
 //先通过 express-async-handler 中间件包装了一个异步函数，以便在异步操作中正确处理错误
 const expressHandler = require('express-async-handler');
-const productModel = require('./models/productModel');
+const productModel = require('./models/imageModel');
 // 导入产品模型，用于数据库操作
 //展示如何在後端路由中處理錯誤並返回適當的 JSON 對象
 const postProduct = expressHandler(async (req, res) => {
@@ -33,4 +33,4 @@ const postProduct = expressHandler(async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-module.exports = postProduct;
+module.exports = postProductController;
