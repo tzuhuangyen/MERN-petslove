@@ -28,5 +28,5 @@ const fileFilter = (req, file, cb) => {
 const adminUploadMiddleware = multer({
   storage: storage,
   fileFilter: fileFilter,
-}).single('photo');
+});
 module.exports = adminUploadMiddleware;

@@ -6,7 +6,7 @@ const router = express.Router();
 const adminUploadMiddleware = require('../middlewares/adminUploadMiddleware');
 const uploadImageModel = require('../models/uploadImageModel');
 
-router.get('/products/getProducts', async (req, res) => {
+router.get('/getProducts', async (req, res) => {
   // 从 MongoDB 中检索所有产品数据
   const allProducts = await uploadImageModel.find().sort({
     createdAt: 'descending',
@@ -17,7 +17,7 @@ router.get('/products/getProducts', async (req, res) => {
 });
 // 後端路由/products/uploadProduct处理图像上传的路由
 router.post(
-  '/products/uploadProduct',
+  '/uploadProduct',
   adminUploadMiddleware.single('photo'),
   (req, res) => {
     // const photo = req.file.filename;
@@ -27,7 +27,7 @@ router.post(
       return res.status(400).send('No files were uploaded.');
     }
     uploadImageModel
-      .create({ photo })
+      .create({ photo: req.file.filename })
       .then((data) => {
         console.log('Product uploaded successfully');
         console.log(data);
@@ -35,6 +35,7 @@ router.post(
       })
       .catch((err) => {
         console.log(err);
+        res.status(500).send('Failed to upload product.');
       });
   }
 );
