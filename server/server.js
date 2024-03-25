@@ -6,13 +6,13 @@ const cors = require('cors');
 const connectDB = require('./connectMongo');
 connectDB();
 
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
-const adminRoutes = require('./routes/adminRoutes');
+const adminUserRoutes = require('./routes/adminUserRoutes');
+// const productRoutes = require('./routes/productRoutes');
+const adminProductRoutes = require('./routes/adminProductRoutes');
 
+app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
-app.use(cors());
 // 日志中间件
 app.use((req, res, next) => {
   console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.url}`);
@@ -21,20 +21,13 @@ app.use((req, res, next) => {
 
 // This is a function that takes in 'req' and 'res' objects as parameters.
 // The function is expected to return a JSON response.
-app.get('/api/config', (req, res) => {
-  // The 'backendUrl' variable is assigned the value of the URL
-  // where the backend server is hosted.
-  const backendUrl = 'https://petslove-mern.onrender.com';
-  // The 'res.json()' method is used to send a JSON response to the client.
-  // Here, the JSON response contains the 'backendUrl' variable.
-  res.json({ backendUrl });
-});
+
 // 将用户路由挂载到 /api/users 路径下
-app.use('/users', userRoutes);
+app.use('/adminUsers', adminUserRoutes);
 // 将产品路由挂载到 /products 路径下
-app.use('/products', productRoutes);
+// app.use('/products', productRoutes);
 // 將admin路由掛載到 /admin路徑下
-app.use('/admin', adminRoutes);
+app.use('/adminProducts', adminProductRoutes);
 
 // 错误处理程序
 app.use((err, req, res, next) => {

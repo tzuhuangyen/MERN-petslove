@@ -20,7 +20,7 @@ function generateToken(user) {
 //test
 // router.get('/', (req, res) => {
 //   console.log('Handling GET request to mongoDB for /');
-//   res.send('hello');
+//   sendStatus('hello');
 // });
 //find/get all users
 router.get('/', async (req, res) => {
