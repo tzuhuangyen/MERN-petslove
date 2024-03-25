@@ -5,7 +5,7 @@ import { FiEdit2 } from 'react-icons/fi';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 
 const backendUrl = 'https://petslove-mern.onrender.com';
-function AdminProduct() {
+function AdminProduct({ photos }) {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
   const [order, setOrder] = useState('');
@@ -14,69 +14,41 @@ function AdminProduct() {
   const [uploadedProducts, setUploadedProducts] = useState([]);
   const [file, setFile] = useState(null); // 追加 file 状态来存储选择的文件
 
-  const handleUpload = async (e) => {
+  const handleUpload = (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('productName', productName);
-    formData.append('price', price);
-    formData.append('type', type);
-    formData.append('order', order);
-    formData.append('description', description);
-
-    console.log(file);
-    try {
-      const response = await axios.post(
+    formData.append('photo', file);
+    // formData.append('productName', productName);
+    // formData.append('price', price);
+    // formData.append('type', type);
+    // formData.append('order', order);
+    // formData.append('description', description);
+    axios
+      .post(
         `${backendUrl}/admin/products/uploadProduct`,
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data', // 設置 Content-Type
-          },
-        }
-      );
-      // 提取响应中的图片路径
-      const imageUrl = response.data.imageUrl;
-      // 將上傳的資訊添加到 uploadedProducts 中
-      setUploadedProducts([
-        ...uploadedProducts,
-        {
-          productName,
-          price,
-          type,
-          order,
-          description,
-          imageUrl: [imageUrl], // 將圖片路徑放入 images 屬性中
-        },
-      ]);
-
-      //clear all input
-      setFile(null);
-      console.log(formData);
-
-      setProductName('');
-      setPrice('');
-      setType('');
-      setOrder('');
-      setDescription('');
-      console.log(formData);
-      alert('上傳成功');
-    } catch (error) {
-      console.error('Error:', error.response.data);
-    }
+        formData
+        // {
+        //   headers: {
+        //     'Content-Type': 'multipart/form-data', // 設置 Content-Type
+        //   },
+        // }
+      )
+      .then((res) => {
+        console.log(res.data);
+        const uploadedData = res.data;
+        // setProductName('');
+        // setPrice('');
+        // setType('');
+        // setOrder('');
+        // setDescription('');
+        console.log(uploadedData);
+        alert('上傳成功');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
-  //test upload
-  //   const handleUpload = (e) => {
-  //     console.log(file);
-  //   };
-
-  // useEffect(() => {
-  //   axios
-  //     .get('http://localhost:8080/getImage')
-  //     .then((res) => setImage(res.data[0].image))
-  //     .catch((err) => console.log(err));
-  // });
   return (
     <div>
       <Container className='mt-5 mb-5'>
@@ -90,8 +62,7 @@ function AdminProduct() {
                   type='file'
                   multiple // 允許選擇多個文件
                   onChange={(e) => {
-                    setFile(e.target.files[0]);
-                    console.log('file:', e.target.files[0]);
+                    handleUpload(e);
                   }}
 
                   // onChange={handleFileChange}
@@ -111,7 +82,7 @@ function AdminProduct() {
               </Form.Group>{' '}
             </Form>
           </Col>
-          <Col md={6}>
+          {/* <Col md={6}>
             <Form>
               <Form.Group controlId='productName'>
                 <Form.Label>product name</Form.Label>
@@ -178,7 +149,7 @@ function AdminProduct() {
                 submit
               </Button>
             </Form>
-          </Col>
+          </Col> */}
         </Row>
         <Table striped bordered hover>
           <thead>
@@ -215,6 +186,13 @@ function AdminProduct() {
                   <MdOutlineDeleteForever />
                 </td>
               </tr>
+            ))} */}
+            {/* {photos.map(({ photo, _id }) => (
+              <div key={_id}>
+                <img
+                  src={`http://localhost:8080/admin/api/uploadedProducts/${photo}`}
+                />
+              </div>
             ))} */}
           </tbody>
         </Table>
