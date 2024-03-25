@@ -6,15 +6,23 @@ const router = express.Router();
 const adminUploadMiddleware = require('../middlewares/adminUploadMiddleware');
 const uploadImageModel = require('../models/uploadImageModel');
 
-router.get('/getProducts', async (req, res) => {
-  // 从 MongoDB 中检索所有产品数据
-  const allProducts = await uploadImageModel.find().sort({
-    createdAt: 'descending',
-  });
-  res.send(allProducts);
+router.get('/', async (req, res) => {
+  try {
+    // 从 MongoDB 中检索所有产品数据
+    const allProducts = await uploadImageModel
+      .find()
+      .sort({ createdAt: 'descending' });
+    res.json(allProducts);
+    console.log('Handling GET request to mongoDB for /products');
+    console.log(allProducts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+
   // 返回产品数据给前端
-  res.json(allProducts);
+  // res.json(allProducts);
 });
+
 // 後端路由/products/uploadProduct处理图像上传的路由
 router.post(
   '/uploadProduct',
