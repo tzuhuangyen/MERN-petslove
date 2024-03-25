@@ -3,8 +3,9 @@ import axios from 'axios';
 import { Container, Row, Col, Form, Button, Table } from 'react-bootstrap';
 import { FiEdit2 } from 'react-icons/fi';
 import { MdOutlineDeleteForever } from 'react-icons/md';
+import { IoCloudUploadOutline } from 'react-icons/io5';
 
-const backendUrl = 'https://petslove-mern.onrender.com';
+// const backendUrl = 'https://petslove-mern.onrender.com';
 function AdminProduct({ photos }) {
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
@@ -18,7 +19,7 @@ function AdminProduct({ photos }) {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('photo', file);
+    formData.append('Image', file);
     // formData.append('productName', productName);
     // formData.append('price', price);
     // formData.append('type', type);
@@ -26,7 +27,8 @@ function AdminProduct({ photos }) {
     // formData.append('description', description);
     axios
       .post(
-        `${backendUrl}/admin/products/uploadProduct`,
+        // `${backendUrl}/adminProducts/uploadProduct`,
+        'http://localhost:8080/adminProducts/uploadProduct',
         formData
         // {
         //   headers: {
@@ -55,7 +57,7 @@ function AdminProduct({ photos }) {
         <h1 className='text-center mb-5'>Add Product</h1>
         <Row className='justify-content-md-center'>
           <Col md={6}>
-            <Form>
+            <Form className='d-flex align-items-end'>
               <Form.Group controlId='formFile'>
                 <Form.Label>choose image</Form.Label>
                 <Form.Control
@@ -67,6 +69,7 @@ function AdminProduct({ photos }) {
 
                   // onChange={handleFileChange}
                 />
+
                 {/* 選擇的文件顯示在網頁上作為圖片。 */}
                 {/* {file && (
                   <>
@@ -80,6 +83,9 @@ function AdminProduct({ photos }) {
                   </>
                 )} */}
               </Form.Group>{' '}
+              <button className='ms-2'>
+                <IoCloudUploadOutline size={20} />
+              </button>
             </Form>
           </Col>
           {/* <Col md={6}>
@@ -150,9 +156,6 @@ function AdminProduct({ photos }) {
               </Button>
             </Form>
           </Col> */}
-          <Button variant='primary' type='submit' onClick={handleUpload}>
-            submit
-          </Button>
         </Row>
         <Table striped bordered hover>
           <thead>
@@ -193,7 +196,7 @@ function AdminProduct({ photos }) {
             {/* {photos.map(({ photo, _id }) => (
               <div key={_id}>
                 <img
-                  src={`http://localhost:8080/admin/api/uploadedProducts/${photo}`}
+                  src={`http://localhost:8080/adminProducts/uploadedProducts/${photo}`}
                 />
               </div>
             ))} */}
