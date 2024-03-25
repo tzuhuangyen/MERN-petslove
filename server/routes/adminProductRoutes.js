@@ -5,6 +5,7 @@ const router = express.Router();
 // const postProductController = require('../postProductController');
 const adminUploadMiddleware = require('../middlewares/adminUploadMiddleware');
 const uploadImageModel = require('../models/uploadImageModel');
+const { postImage } = require('../postProductController');
 
 router.get('/', async (req, res) => {
   try {
@@ -24,29 +25,27 @@ router.get('/', async (req, res) => {
 });
 
 // 後端路由/products/uploadProduct处理图像上传的路由
-router.post(
-  '/uploadProduct',
-  adminUploadMiddleware.single('photo'),
-  (req, res) => {
-    // const photo = req.file.filename;
-    console.log(req.file);
-    // 在这里可以访问上传的文件对象 req.file
-    if (!req.file) {
-      return res.status(400).send('No files were uploaded.');
-    }
-    uploadImageModel
-      .create({ photo: req.file.filename })
-      .then((data) => {
-        console.log('Product uploaded successfully');
-        console.log(data);
-        res.send(data);
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).send('Failed to upload product.');
-      });
-  }
-);
+router.post('/uploadProduct', adminUploadMiddleware.single('image'), postImage);
+//   (req, res) => {
+//     // const photo = req.file.filename;
+//     console.log(req.file);
+//     // 在这里可以访问上传的文件对象 req.file
+//     if (!req.file) {
+//       return res.status(400).send('No files were uploaded.');
+//     }
+//     uploadImageModel
+//       .create({ photo: req.file.filename })
+//       .then((data) => {
+//         console.log('Product uploaded successfully');
+//         console.log(data);
+//         res.send(data);
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//         res.status(500).send('Failed to upload product.');
+//       });
+//   }
+// );
 // router.post(
 //   '/products/uploadProduct',
 //   adminUpload.array('file'),
