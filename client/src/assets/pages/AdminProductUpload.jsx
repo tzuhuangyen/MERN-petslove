@@ -62,7 +62,7 @@ function AdminProduct({ photos }) {
                   type='file'
                   multiple // 允許選擇多個文件
                   onChange={(e) => {
-                    handleUpload(e);
+                    console.log(e.target.files[0]);
                   }}
 
                   // onChange={handleFileChange}
@@ -150,6 +150,9 @@ function AdminProduct({ photos }) {
               </Button>
             </Form>
           </Col> */}
+          <Button variant='primary' type='submit' onClick={handleUpload}>
+            submit
+          </Button>
         </Row>
         <Table striped bordered hover>
           <thead>
