@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { IoCloudUploadOutline } from 'react-icons/io5';
 const backendUrl = 'https://petslove-mern.onrender.com';
+import { Button } from 'react-bootstrap';
 
 function UpdateFileBtn({ setUpdateUI }) {
   const handleUpload = (e) => {
@@ -40,14 +41,11 @@ function UpdateFileBtn({ setUpdateUI }) {
     <div>
       {' '}
       <label htmlFor='file_picker'>
-        <input
-          hidden
-          type='file'
-          name='file_picker'
-          id='file_picker'
-          onChange={(e) => handleUpload(e)}
-        />
-        <IoCloudUploadOutline size={36} />
+        <input type='file' name='file_picker' id='file_picker' />
+        <Button onChange={(e) => handleUpload(e)}>
+          {' '}
+          <IoCloudUploadOutline size={36} />
+        </Button>
       </label>
     </div>
   );

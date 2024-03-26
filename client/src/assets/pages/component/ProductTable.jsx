@@ -10,10 +10,7 @@ function ProductTable({ images }) {
         <div className='imageGrid'>
           {images.map(({ image, _id }) => (
             <div key={_id} className='image__item'>
-              <img
-                src={`${backendUrl}/adminProducts/${image}`}
-                alt='productImage'
-              />
+              <img src={image.filepath} alt={`${_id} product Image`} />
             </div>
           ))}
         </div>
