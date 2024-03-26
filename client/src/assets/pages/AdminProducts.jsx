@@ -24,7 +24,6 @@ function AdminProducts() {
               </tr>
             </thead>
             <tbody>
-              {/* {products.map((product, index) => ( */}
               <tr>
                 <td>ID</td>
                 <td>productName</td>

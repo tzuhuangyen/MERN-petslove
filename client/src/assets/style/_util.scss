@@ -141,3 +141,23 @@
   color: $secondary;
   padding: 0;
 }
+
+//admin update image for ProductTable
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  gap: 1rem;
+  padding: 5rem;
+  padding-top: 0;
+}
+.image__item {
+  height: 16rem;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.25);
+}
+.image__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
