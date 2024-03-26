@@ -11,8 +11,9 @@ const path = require('path');
 // 设置静态文件夹来提供图片
 router.use(
   '/adminProducts/images',
-  express.static(path.join(__dirname, '../public/Images'))
+  express.static(path.join(__dirname, 'public/Images'))
 );
+//get all photos of products
 router.get('/', async (req, res) => {
   try {
     // 从 MongoDB 中检索所有产品数据
@@ -29,7 +30,11 @@ router.get('/', async (req, res) => {
   // 返回产品数据给前端
   // res.json(allProducts);
 });
-
+// 设置路由，用于提供图片资源
+router.get('images/:filename', (req, res) => {
+  const filename = req.params.filename;
+  res.sendFile(path.join(imagePath, filename));
+});
 // 後端路由/products/uploadProduct处理图像上传的路由
 router.post('/uploadProduct', adminUploadMiddleware.single('image'), postImage);
 //   (req, res) => {
