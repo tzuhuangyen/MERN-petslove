@@ -3,15 +3,21 @@ import { Container, Table, Button } from 'react-bootstrap';
 import { FiEdit2 } from 'react-icons/fi';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import { useOutletContext } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 function AdminProducts() {
   return (
     <div>
       <h1>Admin Product List</h1>
       <Container>
         <div className='col-9'>
-          <Button className='btn btn-primary'>
-            <a href='/admin/products/uploadProduct'>Add new product</a>
-          </Button>
+          <Link
+            as={Link}
+            to='/admin/products/uploadProduct'
+            className='btn btn-primary'
+          >
+            Add new product
+          </Link>
           <Table striped bordered hover>
             <thead>
               <tr>

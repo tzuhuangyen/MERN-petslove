@@ -56,6 +56,7 @@ function App() {
         <Route path='/blog' element={<Blog />} />
         <Route path='/admin' element={<AdminIndex />}>
           <Route path='/admin/products' element={<AdminProducts />}></Route>
+
           <Route path='/admin/orders' element={<AdminOrders />}></Route>
           <Route path='/admin/analysis' element={<AdminAnalysis />}></Route>
         </Route>
