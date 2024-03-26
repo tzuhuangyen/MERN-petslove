@@ -13,6 +13,7 @@ const adminProductRoutes = require('./routes/adminProductRoutes');
 app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
+
 // 日志中间件
 app.use((req, res, next) => {
   console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.url}`);

@@ -6,7 +6,13 @@ const router = express.Router();
 const adminUploadMiddleware = require('../middlewares/adminUploadMiddleware');
 const uploadImageModel = require('../models/uploadImageModel');
 const { postImage } = require('../postProductController');
+const path = require('path');
 
+// 设置静态文件夹来提供图片
+router.use(
+  '/adminProducts/images',
+  express.static(path.join(__dirname, '../public/Images'))
+);
 router.get('/', async (req, res) => {
   try {
     // 从 MongoDB 中检索所有产品数据
